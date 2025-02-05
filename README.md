@@ -2,8 +2,9 @@
 Please do your very best to keep the project hidden untill 1.0 release. \
 \
 **Business name: N/A**\
+\
 **Dev team**\
-CEO:\ 
+CEO: 
 Guacamoleboy\
 \
 Devs:\
