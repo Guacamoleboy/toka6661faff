@@ -10,4 +10,10 @@ Guacamoleboy\
 Devs:\
 N/A
 
-**Contact information**
+**Contact information**\
+\
+Website URL
+\
+API-Key
+\
+SQL Information
