@@ -1,0 +1,647 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Rely</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+
+    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/rangeslider.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <div class="site-wrap">
+
+        <div class="site-mobile-menu">
+            <div class="site-mobile-menu-header">
+                <div class="site-mobile-menu-close mt-3">
+                    <span class="icon-close2 js-menu-toggle"></span>
+                </div>
+            </div>
+            <div class="site-mobile-menu-body"></div>
+        </div>
+
+        <header class="site-navbar" role="banner">
+
+            <div class="container">
+                <div class="row align-items-center">
+
+                    <div class="col-11 col-xl-2">
+                        <h1 class="mb-0 site-logo"><a href="index.php" class="text-white h2 mb-0"></a><img src="images/rely-logo1.png" alt="" class="img-fluid"></h1>
+                    </div>
+                    <div class="col-12 col-md-10 d-none d-xl-block">
+                        <nav class="site-navigation position-relative text-right" role="navigation">
+
+                            <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
+                                <li><a href="index.php"><span>Forside</span></a></li>
+                                <li class="has-children">
+                                  <a href="categories.php"><span>Kategorier</span></a>
+                                  <ul class="dropdown arrow-top">
+                                    <li class="has-children">
+                                        <a href="food.php">Madvarer</a>
+                                        <ul class="dropdown">
+                                          <li><a href="food/candy.php">Slik</a></li>
+                                          <li><a href="food/sugarfree.php">Sukkerfri</a></li>
+                                          <li><a href="food/chips.php">Chips</a></li>
+                                          <li><a href="food/meat.php">Kød</a></li>
+                                          <li><a href="food/top100.php">Top100</a></li>
+                                        </ul>
+                                      </li>
+                                    <li><a href="electronics.php">Elektronik</a></li>
+                                    <li><a href="beauty.php">Beauty</a></li>
+                                    <li class="has-children">
+                                      <a href="animalfood.php">Dyremad</a>
+                                      <ul class="dropdown">
+                                        <li><a href="animalfood/cat.php">Kat</a></li>
+                                        <li><a href="animalfood/dog.php">Hund</a></li>
+                                        <li><a href="animalfood/top100.php">Top 100</a></li>
+                                      </ul>
+                                    </li>
+                                    <li class="has-children">
+                                        <a href="drinks.php">Drikkevarer</a>
+                                        <ul class="dropdown">
+                                          <li><a href="drinks/alcohol.php">Alkohol 18+</a></li>
+                                          <li><a href="drinks/soda.php">Sodavand</a></li>
+                                          <li><a href="drinks/energy.php">Energy drink</a></li>
+                                          <li><a href="drinks/water.php">Vand</a></li>
+                                          <li><a href="drinks/top100.php">Top100</a></li>
+                                        </ul>
+                                      </li>
+                                    <li><a href="cars.php">Biler</a></li>
+                                    <li><a href="text.php"></a>TEKST</li>
+                                  </ul>
+                                </li>
+                                <li><a href="about.php"><span>Om os</span></a></li>
+                                <li><a href="business.php"><span>Virksomhed</span></a></li>
+                                <li><a href="contact.php"><span>Kontakt</span></a></li>
+                                <li class="active"><a href="login.php"><span>Log Ind</span></a></li>
+                              </ul>
+                        </nav>
+                    </div>
+
+                    <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+
+                </div>
+
+            </div>
+    </div>
+
+    </header>
+
+    <div class="site-blocks-cover overlay" style="background-image: url(images/background1-upscale.jpeg);" data-aos="fade" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row align-items-center justify-content-center text-center">
+
+                <div class="col-md-10">
+                    <div class="row justify-content-center mb-4">
+                        <div class="col-md-10 text-center">
+                            <h1 data-aos="fade-up">Find vurderinger for <span class="typed-words"></span></h1>
+                            <p data-aos="fade-up" class=" w-75 mx-auto">Produkt anmeldelser - samlet ét sted!</p>
+                        </div>
+                    </div>
+
+                    <div class="form-search-wrap p-2" data-aos="fade-up" data-aos-delay="200">
+                        <form method="post" action="search.php">
+                            <div class="row align-items-center">
+                                <div class="col-lg-12 col-xl-6 no-sm-border">
+                                    <input type="text" class="form-control" placeholder="Søg efter vare..">
+                                </div>
+
+                                <div class="col-lg-12 col-xl-2 ml-auto text-right">
+                                    <input type="submit" class="btn text-white btn-primary" value="Søg">
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="site-section" data-aos="fade">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-7 text-center border-primary">
+                    <h2 class="font-weight-light text-primary">Nye brugeranmeldelser</h2>
+                    <p class="color-black-opacity-5">Et udvalg af nye brugeranmeldelser. Tryk og se om du er enig! Giv også gerne din egen vurdering af produktet.</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-4 mb-lg-4 col-lg-4">
+
+                    <div class="listing-item">
+                        <div class="listing-image">
+                            <img src="images/test4.png" alt="Rely" class="img-fluid">
+                        </div>
+                        <div class="listing-item-content">
+                            <a href="listings-single.html" class="bookmark" data-toggle="tooltip" data-placement="left" title="Bookmark"><span class="icon-heart"></span></a>
+                            <a class="px-3 mb-3 category" href="categories/food.php">Madvarer</a>
+                            <h2 class="mb-1"><a href="listings-single.html">Kims Ostepops</a></h2>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-6 mb-4 mb-lg-4 col-lg-4">
+
+                    <div class="listing-item">
+                        <div class="listing-image">
+                            <img src="images/test1.png" alt="Rely" class="img-fluid">
+                        </div>
+                        <div class="listing-item-content">
+                            <a href="listings-single.html" class="bookmark"><span class="icon-heart"></span></a>
+                            <a class="px-3 mb-3 category" href="categories/beauty.php">Beauty</a>
+                            <h2 class="mb-1"><a href="listings-single.html">Sol de Janeiro Coco Cabana Cream</a></h2>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-6 mb-4 mb-lg-4 col-lg-4">
+
+                    <div class="listing-item">
+                        <div class="listing-image">
+                            <img src="images/test2.png" alt="Rely" class="img-fluid">
+                        </div>
+                        <div class="listing-item-content">
+                            <a href="listings-single.html" class="bookmark"><span class="icon-heart"></span></a>
+                            <a class="px-3 mb-3 category" href="categories/beauty.php">Beauty</a>
+                            <h2 class="mb-1"><a href="listings-single.html">Sol de Janeiro 68 Spray</a></h2>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-4 mb-lg-4 col-lg-4">
+
+                    <div class="listing-item">
+                        <div class="listing-image">
+                            <img src="images/test3.png" alt="Rely" class="img-fluid">
+                        </div>
+                        <div class="listing-item-content">
+                            <a href="listings-single.html" class="bookmark" data-toggle="tooltip" data-placement="left" title="Bookmark"><span class="icon-heart"></span></a>
+                            <a class="px-3 mb-3 category" href="categories/animalfood.php">Dyremad</a>
+                            <h2 class="mb-1"><a href="listings-single.html">Crispy Crunch Vitakraft</a></h2>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-6 mb-4 mb-lg-4 col-lg-4">
+
+                    <div class="listing-item">
+                        <div class="listing-image">
+                            <img src="images/test5.png" alt="Rely" class="img-fluid">
+                        </div>
+                        <div class="listing-item-content">
+                            <a href="listings-single.html" class="bookmark"><span class="icon-heart"></span></a>
+                            <a class="px-3 mb-3 category" href="categories/electronics.php">Elektronik</a>
+                            <h2 class="mb-1"><a href="listings-single.html">Bose Quietcomfort 45</a></h2>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-6 mb-4 mb-lg-4 col-lg-4">
+
+                    <div class="listing-item">
+                        <div class="listing-image">
+                            <img src="images/test6.png" alt="Rely" class="img-fluid">
+                        </div>
+                        <div class="listing-item-content">
+                            <a href="listings-single.html" class="bookmark"><span class="icon-heart"></span></a>
+                            <a class="px-3 mb-3 category" href="categories/beauty.php">Beauty</a>
+                            <h2 class="mb-1"><a href="listings-single.html">Sol de Janeiro Bum Bum Body Scrub</a></h2>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="site-section">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-7 text-center border-primary">
+                    <h2 class="font-weight-light text-primary">Populære Kategorier</h2>
+                    <p class="color-black-opacity-5">Her finder du et udvalg af nogle af de største og mest aktive kategorier hos Rely.</p>
+                </div>
+            </div>
+
+            <div class="row align-items-stretch">
+                <div class="col-6 col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
+                    <a href="categories/food.php" class="popular-category h-100">
+                        <span class="icon mb-3"><span class="flaticon-cutlery"></span></span>
+                        <span class="caption mb-2 d-block">Mad</span>
+                        <span class="number">489</span>
+                    </a>
+                </div>
+                <div class="col-6 col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
+                    <a href="categories/electronics.php" class="popular-category h-100">
+                        <span class="icon mb-3"><span class="flaticon-microphone"></span></span>
+                        <span class="caption mb-2 d-block">Elektronik</span>
+                        <span class="number">482</span>
+                    </a>
+                </div>
+                <div class="col-6 col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
+                    <a href="categories/drinks.php" class="popular-category h-100">
+                        <span class="icon mb-3"><span class="flaticon-flower"></span></span>
+                        <span class="caption mb-2 d-block">Drikkevarer</span>
+                        <span class="number">194</span>
+                    </a>
+                </div>
+                <div class="col-6 col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
+                    <a href="categories/animalfood.php" class="popular-category h-100">
+                        <span class="icon mb-3"><span class="flaticon-restaurant"></span></span>
+                        <span class="caption mb-2 d-block">Dyremad</span>
+                        <span class="number">1,472</span>
+                    </a>
+                </div>
+                <div class="col-6 col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
+                    <a href="categories/streaming.php" class="popular-category h-100">
+                        <span class="icon mb-3"><span class="flaticon-cutlery"></span></span>
+                        <span class="caption mb-2 d-block">Streaming</span>
+                        <span class="number">439</span>
+                    </a>
+                </div>
+                <div class="col-6 col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
+                    <a href="categories/games.php" class="popular-category h-100">
+                        <span class="icon mb-3"><span class="flaticon-bike"></span></span>
+                        <span class="caption mb-2 d-block">Spil</span>
+                        <span class="number">692</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="row mt-5 justify-content-center tex-center">
+                <div class="col-md-4"><a href="categories/total.php" class="btn btn-block btn-outline-primary btn-md px-5">Se alle kategorier</a></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="site-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-5">
+                    <img src="images/rely-test2.png" alt="Rely" class="img-fluid rounded">
+                </div>
+                <div class="col-md-5 ml-auto">
+                    <h2 class="text-primary mb-3">Hvorfor Rely?</h2>
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <div class="border p-3 rounded mb-2">
+                                <a data-toggle="collapse" href="#collapse-1" role="button" aria-expanded="false" aria-controls="collapse-1" class="accordion-item h5 d-block mb-0">Anmeldelser af produkter</a>
+
+                                <div class="collapse" id="collapse-1">
+                                    <div class="pt-2">
+                                        <p class="mb-0">Vi har alle prøvet det.. Vi overvejer at købe en vare, men vi vil lige læse hvad andre tænker om produktet inden. Det eneste tilgængelige er en 1-5 vurdering på Google eller 15min lange videoer på YouTube. Hos Rely får du en vurdering af et produkt direkte fra forbrugeren på under 30sek.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="border p-3 rounded mb-2">
+                                <a data-toggle="collapse" href="#collapse-4" role="button" aria-expanded="false" aria-controls="collapse-4" class="accordion-item h5 d-block mb-0">Det er gratis!</a>
+
+                                <div class="collapse" id="collapse-4">
+                                    <div class="pt-2">
+                                        <p class="mb-0">Alle kan skrive en anmeldelse af et produkt hos Rely. Det kræver bare at du har en bruger og en vurdering af et produkt. <br><br>*Nogle produkter kræver en QR kode.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="border p-3 rounded mb-2">
+                                <a data-toggle="collapse" href="#collapse-2" role="button" aria-expanded="false" aria-controls="collapse-2" class="accordion-item h5 d-block mb-0">Hjælp andre til en god købsoplevelse</a>
+
+                                <div class="collapse" id="collapse-2">
+                                    <div class="pt-2">
+                                        <p class="mb-0">Ved at vurdere et produkt hjælper du et andet menneske til at træffe det helt rigtige køb netop for den enkelte person.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="border p-3 rounded mb-2">
+                                <a data-toggle="collapse" href="#collapse-3" role="button" aria-expanded="false" aria-controls="collapse-3" class="accordion-item h5 d-block mb-0">Det er nemt at bruge</a>
+
+                                <div class="collapse" id="collapse-3">
+                                    <div class="pt-2">
+                                        <p class="mb-0">Det kræver ikke mere end en PC eller en Mobil. Rely fungerer på alle skærme! Kom i gang her XXXXX</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="border p-3 rounded mb-2">
+                                <a data-toggle="collapse" href="#collapse-5" role="button" aria-expanded="false" aria-controls="collapse-5" class="accordion-item h5 d-block mb-0">Som virksomhed</a>
+
+                                <div class="collapse" id="collapse-5">
+                                    <div class="pt-2">
+                                        <p class="mb-0">Se hvad folk tænker om netop jeres produkt. Sæt op jeres produkter i dag!</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="site-section">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-7 text-center border-primary">
+                    <h2 class="font-weight-light text-primary">Hvordan det fungerer</h2>
+                    <p class="color-black-opacity-5">Giv din vurdering af produkter så andre mennesker kan få indblik i hvordan et produkt er inden de køber det. </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-4 mb-lg-0 col-lg-4">
+                    <div class="how-it-work-step">
+                        <div class="img-wrap">
+                            <img src="images/step-1.svg" alt="Rely" class="img-fluid">
+                        </div>
+                        <span class="number">1</span>
+                        <h3>Log ind eller registrer dig</h3>
+                        <p>Dette gør det nemmere for os hos Rely at holde styr på spam vurderinger, falske vurderinger mm.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4 mb-lg-0 col-lg-4">
+                    <div class="how-it-work-step">
+                        <div class="img-wrap">
+                            <img src="images/step-2.svg" alt="Rely" class="img-fluid">
+                        </div>
+                        <span class="number">2</span>
+                        <h3>Søg efter en vare</h3>
+                        <p>Vi har vurderinger inden for alle kategorier. Alt der sælges kan vurderes.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4 mb-lg-0 col-lg-4">
+                    <div class="how-it-work-step">
+                        <div class="img-wrap">
+                            <img src="images/step-3.svg" alt="Rely" class="img-fluid">
+                        </div>
+                        <span class="number">3</span>
+                        <h3>Vurder!</h3>
+                        <p>Når din vare er fundet, så vurderer du den! Det er så simpelt som det lyder. Husk at være ærlig og fair!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="site-section bg-light">
+        <div class="container">
+
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-7 text-center border-primary">
+                    <h2 class="font-weight-light text-primary">Vores Rely vurderinger</h2>
+                    <p class="color-black-opacity-5">Vi tester produkter direkte hos Rely, og giver den mest professionelle og præcis vurdering.</p>
+                </div>
+            </div>
+
+            <div class="slide-one-item home-slider owl-carousel">
+                <div>
+                    <div class="testimonial">
+                        <figure class="mb-4">
+                            <img src="images/bose.jpg" alt="Rely" class="img-fluid mb-3">
+                            <p>Bose QuietComfort 45</p>
+                        </figure>
+                        <blockquote>
+                            <p>&ldquo;Super produkt! Top klasse. Hvis du ønsker Noise Cancel, så er dette produkt noget for dig. Kigger man på konkurrenter mm, så er der meget få. Dette er et unikt produkt som slår de andre.&rdquo;</p>
+                        </blockquote>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-4 mb-lg-0 col-lg-4">
+                                <div class="how-it-work-step">
+                                    <p>Noise Cancel</p>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4 mb-lg-0 col-lg-4">
+                                <div class="how-it-work-step">
+                                    <p>Pris</p>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star "></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4 mb-lg-0 col-lg-4">
+                                <div class="how-it-work-step">
+                                    <p>Connection</p>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star "></span>
+                                </div>
+                            </div>
+                            <br><br><br><br>
+                            <div class="col-md-6 mb-4 mb-lg-0 col-lg-4">
+                                <div class="how-it-work-step">
+                                    <p>Lyd</p>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4 mb-lg-0 col-lg-4">
+                                <div class="how-it-work-step">
+                                    <p>Anbefales</p>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-46 mb-lg-0 col-lg-4">
+                                <div class="how-it-work-step">
+                                    <p>Connectabilty</p>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star "></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="py-5 bg-primary">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 mr-auto mb-4 mb-lg-0">
+                    <h2 class="mb-3 mt-0 text-white">Skriv DINE vurderinger af produkter!</h2>
+                    <p class="mb-0 text-white">Opret en bruger, og giv vurderinger af produkter her på Rely. Sammen står man stærkest.</p>
+                </div>
+                <div class="col-lg-4">
+                    <p class="mb-0"><a href="signup.html" class="btn btn-outline-white text-white btn-md px-5 font-weight-bold btn-md-block">Opret bruger</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-6 mb-5 mb-lg-0 col-lg-3">
+                            <h2 class="footer-heading mb-4">Om os</h2>
+                            <ul class="list-unstyled">
+                                <li><a href="about.php">Om os</a></li>
+                                <li><a href="jobs.php">Jobs</a></li>
+                                <li><a href="contact.php">Kontakt os</a></li>
+                                <li><a href="blog.php">Blog</a></li>
+                                <li><a href="howitworks.php">Sådan fungerer Rely</a></li>
+                                <li><a href="PR.php">Presse</a></li>
+                                <li><a href="investors.php">For investorer</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6 mb-5 mb-lg-0 col-lg-3">
+                            <h2 class="footer-heading mb-4">Community</h2>
+                            <ul class="list-unstyled">
+                                <li><a href="trust.php">Tillid til anmeldelser</a></li>
+                                <li><a href="support.php">Supportcenter</a></li>
+                                <li><a href="login.php">Log ind</a></li>
+                                <li><a href="register.php">Tilmeld dig</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6 mb-5 mb-lg-0 col-lg-3">
+                            <h2 class="footer-heading mb-4">Virksomheder</h2>
+                            <ul class="list-unstyled">
+                                <li><a href="business/relybusiness.php">Rely Business</a></li>
+                                <li><a href="business/solutions.php">Løsninger</a></li>
+                                <li><a href="business/package.php">Pakker og priser</a></li>
+                                <li><a href="business/login.php">Login for virksomheder</a></li>
+                                <li><a href="business/blog.php">Blog for virksomheder</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6 mb-5 mb-lg-0 col-lg-3">
+                            <h2 class="footer-heading mb-4">Følg os</h2>
+                            <a href="facebook.com/rely" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
+                            <a href="twitter.com/rely" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
+                            <a href="instagram.com/rely" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+                            <a href="linkedin.com/rely" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <h2 class="footer-heading mb-4">Tilmeld dig vores nyhedsbrev!</h2>
+                    <p>Vi får </p>
+                    <form action="newsletteraccepted.php" method="post">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control bg-transparent" placeholder="Din Email" aria-label="Din Email" aria-describedby="button-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary text-white" type="button" id="button-addon2">Send</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row pt-5 mt-5">
+                <div class="col-12 text-md-center text-left">
+                    <p>
+                        Copyright &copy;
+                        <script>
+                            document.write(new Date().getFullYear());
+                        </script> All rights reserved | Website by <a href="rely.io" target="_blank">Rely</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </div>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/jquery.countdown.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/bootstrap-datepicker.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/rangeslider.min.js"></script>
+
+
+    <script src="js/typed.js"></script>
+    <script>
+        var typed = new Typed('.typed-words', {
+            strings: ["Madvarer", " Elektronik", " Drikkelse", " Beauty", " Tekst", ],
+            typeSpeed: 80,
+            backSpeed: 80,
+            backDelay: 4000,
+            startDelay: 1000,
+            loop: true,
+            showCursor: true
+        });
+    </script>
+
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
