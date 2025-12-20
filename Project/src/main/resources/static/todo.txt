@@ -1,9 +1,23 @@
 ################################################
-            STEPS TO KEEP TRACK
+                INITIAL SETUP
 ################################################
 
-1) Create index.html []
-2) Create product.html []
+1) Set up setup.sql and dummy.sql files [X]
+2) Create MVC Structure with resource folder [X]
+3) Set up controller, routes and server information [X]
+4) Set up Database for local testing [X]
+5) Set up CSS, JS & Framework files [X]
+6) Set up a template.html file for later use [X]
+7) Private the Github Repository [X]
+8) Consult and find solution for EAN scanner [X]
+9) Get a clear vision and a pathing for it [X]
+
+################################################
+              STEPS TO KEEP TRACK
+################################################
+
+1) Create index.html | Scanner []
+2) Create product.html | Simple title render first []
 3) Skip categories and misc stuff for now. Will mainly work on search []
 4) Set up setup.sql & dummy.sql with relevant backend information []
 5) Set up mapper / search feature (loads the products page) []
@@ -23,3 +37,14 @@
 19) Beta Release []
 20) Test features, bugs and deployment []
 21) Alpha Release []
+
+################################################
+             VERSION 2.0.0 RELEASE
+################################################
+
+1) Favorite products []
+2) Wish list []
+3) Shopping list []
+4) Profile.html with relevant information []
+5) Make it like a game. 1 review -> XP []
+6) XP triggers badges and colors maybe []
