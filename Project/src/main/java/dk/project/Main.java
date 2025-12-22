@@ -16,6 +16,8 @@ public class Main {
         Server server = new Server();
         server.start(7000); // Standard Server for Javalin
 
+
+
     }
 
 }

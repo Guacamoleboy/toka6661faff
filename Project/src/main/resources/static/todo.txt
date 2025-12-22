@@ -11,6 +11,9 @@
 7) Private the Github Repository [X]
 8) Consult and find solution for EAN scanner [X]
 9) Get a clear vision and a pathing for it [X]
+10) Set up Entity, DTO & Relevant Mappers [X]
+11) Set up Pathing Config to avoid problems with production [X]
+12) Set up module (components) .js file folder [X]
 
 ################################################
               STEPS TO KEEP TRACK
