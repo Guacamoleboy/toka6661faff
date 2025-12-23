@@ -1,0 +1,467 @@
+:root {
+
+    /* Theme Specific */
+    --consumr-background: #d0d0d0;
+    --consumr-text: #1a1a1a;
+    --consumr-button-grad-one: #00918e;                                             /* Gradient Color One */
+    --consumr-button-grad-two: #21dad6;                                             /* Gradient Color Two */
+
+    /* Colors */
+    --consumr-theme: #00918e;
+    --consumr-orange: orange;
+    --consumr-red: red;
+    --consumr-blue: blue;
+    --consumr-green: rgb(0, 160, 0);
+    --consumr-black: black;
+    --consumr-less-black: rgb(61, 61, 61);
+    --consumr-white: white;
+    --consumr-less-white: rgb(182, 182, 182);
+    --consumr-grey: rgb(95, 95, 95);
+    --consumr-light-grey: rgb(188, 188, 188);
+    --consumr-accent-purple: #b085f5;
+    --consumr-accent-blue: #6b8cff;
+    --consumr-gray-dark: #1a1a24;
+
+    /* Navbar Specific */
+    --consumr-nav-background: #525252;
+    --consumr-nav-text: #e8e8e8;
+    --consumr-nav-dropdown-background: #3f3f3f;
+    --consumr-nav-dropdown-li: #FFF;
+    --consumr-nav-dropdown-ul: #FFF;
+    --consumr-nav-dropdown-focused: #FFF;
+    --consumr-nav-dropdown-active: #FFF;
+
+    /* Announcement Bar */
+    --consumr-announcement-background: #494949;
+    --consumr-announcement-text: #e8e8e8;
+
+    /* Layout */
+    --consumr-header-height: 6rem;
+
+}
+
+/* ################################################################### */
+/*                              Initial                                */
+/* ################################################################### */
+
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none; /* Old Browsers. Just for safety. */
+    background-color: var(--consumr-background);
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar { /* All other browsers */
+    display: none;
+}
+
+/* ################################################################### */
+/*                              Header                                 */
+/* ################################################################### */
+
+.header-stack {
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+/* ################################################################### */
+/*                              Navbar                                 */
+/* ################################################################### */
+
+.navbar-consumr {
+    height: 4rem;
+    background-color: var(--consumr-nav-background);
+    color: var(--consumr-nav-text) !important;
+}
+
+.navbar-consumr a {
+    text-decoration: none !important;
+}
+
+.navbar-consumr .guac-container {
+    height: 100%;
+}
+
+.navbar-brand-consumr span {
+    height: 100%;
+    font-weight: 600;
+    color: var(--consumr-nav-text) !important;
+    text-decoration: none;
+    font-size: 1.25rem !important;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links > li {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a,
+.nav-links button {
+    text-decoration: none !important;
+    display: flex;
+    align-items: center;
+    height: 2rem;
+    padding: 0 0.5rem;
+    font-size: 0.85rem;
+    line-height: 1;
+    font-weight: 500;
+    color: var(--consumr-nav-text) !important;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.nav-links a:hover,
+.nav-links button:hover {
+    color: var(--consumr-theme);
+}
+
+.navbar-consumr li {
+    margin-bottom: 0 !important;
+}
+
+.navbar-logo-sizing {
+    margin-right: 0.25rem !important;
+    width: 12.5%;
+    height: auto;
+}
+
+/* ################################################################### */
+/*                             Dropdown                                */
+/* ################################################################### */
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    flex-direction: column;
+    min-width: 12rem;
+    background-color: var(--consumr-nav-dropdown-background);
+    border-radius: 0.5rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    padding: 0.25rem 0;
+    z-index: 1000;
+}
+
+.dropdown:hover > .dropdown-menu {
+    display: flex;
+}
+
+.dropdown-menu li {
+    list-style: none;
+    margin: 0;
+}
+
+.dropdown i {
+    margin-left: 0.25rem !important;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+    color: var(--consumr-nav-dropdown-li);
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+    background-color: rgba(0, 145, 142, 0.75);
+}
+
+/* ################################################################### */
+/*                         Announcement Bar                            */
+/* ################################################################### */
+
+.announcement-bar {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: var(--consumr-announcement-background) !important;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding: 0.5rem 0;
+    font-size: 0.875rem;
+    z-index: 1;
+}
+
+.announcement-track {
+    display: inline-block;
+    padding-left: 100%;
+    animation: guacMarquee 18s linear infinite;
+}
+
+.announcement-track span {
+    color: var(--consumr-announcement-text);
+    font-weight: 500;
+}
+
+/* ################################################################### */
+/*                               Hero                                  */
+/* ################################################################### */
+
+.section-hero {
+    isolation: isolate;                                                         /* DO NOT REMOVE */
+    min-height: calc(100vh - var(--consumr-header-height));
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    background: #737373;
+}
+
+.section-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+            radial-gradient(circle at var(--circle1-pos, 30% 70%), #ffc107 0%, transparent 20%),
+            radial-gradient(circle at var(--circle2-pos, 70% 30%), var(--consumr-theme) 0%, transparent 20%);
+    opacity: 0.2;
+}
+
+.section-hero .container {
+    text-align: center;
+    z-index: 2;
+}
+
+.section-hero h1 {
+    color: var(--consumr-white);
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    text-shadow: 0 2px 2px rgba(0,0,0,0.5);
+    max-width: 800px;
+    margin: 0 auto 2rem;
+}
+
+.section-hero h1 span {
+    color: var(--consumr-theme) !important;
+}
+
+.section-hero p {
+    color: var(--consumr-white);
+    font-size: 1.0rem;
+    opacity: 1;
+    max-width: 600px;
+    margin: 1rem auto 1rem;
+}
+
+.integration-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.integration-btn {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--consumr-white);
+    padding: 0.9rem 1.4rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.integration-btn:hover {
+    background: var(--consumr-theme);
+    transform: translateY(-2px);
+    box-shadow: 0 0 12px var(--consumr-theme), 0 0 4px var(--consumr-theme, rgba(123, 108, 246, 0.3));
+    color: var(--consumr-white);
+}
+
+.integration-btn i {
+    font-size: 1rem;
+}
+
+.btn-send {
+    background: rgba(0, 145, 142, 0.8);
+    border: none;
+    color: white;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.btn-send:hover {
+    background: var(--consumr-theme);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0, 145, 142, 0.4);
+}
+
+.input-group {
+    max-width: 700px;
+    margin: 0 auto 1.5rem;
+    background: rgba(255,255,255,0.08);
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.input-group input {
+    background: transparent;
+    border: none;
+    color: var(--consumr-white);
+    opacity: 0.75 !important;
+    font-size: 0.9rem;
+    flex: 1;
+    outline: none;
+    font-weight: 600 !important;
+}
+
+.input-group input::placeholder {
+    font-weight: 500 !important;
+    color: rgba(255,255,255,0.75);
+    font-size: 0.9rem;
+}
+
+.logo-small {
+    width: 10% !important;
+    height: auto;
+}
+
+/* ################################################################### */
+/*                              Buttons                                */
+/* ################################################################### */
+
+.consumr-logind-btn, .consumr-opret-btn {
+    border-radius: 0.5rem !important;
+    border: none !important;
+    font-weight: 600;
+    padding: 0.5rem 1.25rem;
+    transition: all 0.3s ease;
+}
+
+.consumr-logind-btn {
+    background-color: var(--consumr-less-white);
+    color: var(--consumr-gray-dark);
+}
+
+.consumr-opret-btn {
+    background: linear-gradient(45deg, var(--consumr-button-grad-one), var(--consumr-button-grad-two));
+    box-shadow: 0 2px 10px rgba(var(--consumr-button-grad-one), 0.4);
+    color: var(--consumr-white);
+}
+
+/* ################################################################### */
+/*                      Section User Review                            */
+/* ################################################################### */
+
+.section-user-review {
+    background-color: rgba(0, 145, 142, 0.51);
+}
+
+.review-info {
+    color: var(--consumr-white);
+    margin: 4rem 0;
+}
+
+.review-info p:first-child {
+    margin-bottom: -1.5rem !important;
+    color: var(--consumr-white);
+    opacity: 0.75 !important;
+}
+
+.review-info p:last-child {
+    margin-top: 0rem !important;
+}
+
+.review-info h2 {
+    position: relative;
+    display: inline-block;
+}
+
+.review-info h2::after {
+    content: '';
+    display: block;
+    width: 6rem;
+    height: 4px;
+    background-color: var(--consumr-white);
+    margin: 0.5rem auto 0;
+}
+
+.guac-card {
+    border: 2px solid var(--consumr-white);
+    border-radius: 1rem !important;
+    padding: 0 !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.guac-card img {
+    width: 100%;
+    display: block;
+    height: auto;
+}
+
+.card-info-left,
+.card-info-right {
+    position: absolute;
+    bottom: 1rem;
+    color: white;
+    text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+    font-size: 0.85rem;
+}
+
+.card-info-left {
+    left: 1rem !important;
+}
+
+.card-info-right {
+    right: 1rem !important;
+}
+
+.product-title {
+    font-weight: 600;
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.product-category {
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.product-rating {
+    font-weight: 500;
+    margin: 0;
+}
