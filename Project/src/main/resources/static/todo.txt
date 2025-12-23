@@ -19,7 +19,7 @@
               STEPS TO KEEP TRACK
 ################################################
 
-1) Create index.html | Scanner []
+1) Create index.html []
 2) Create product.html | Simple title render first []
 3) Skip categories and misc stuff for now. Will mainly work on search []
 4) Set up setup.sql & dummy.sql with relevant backend information []
