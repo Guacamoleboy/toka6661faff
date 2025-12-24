@@ -34,75 +34,14 @@
     <script src="/js/circle-movement.js" defer></script>
 
     <!-- Modules -->
-    <script type="module" src="/js/components/announcement-bar.js" defer></script>
+    <script type="module" src="/js/components/header.js" defer></script>
 
 </head>
 <body>
 
-<!-- Header Stack -->
-<header class="header-stack">
-
-    <!-- Announcement Bar -->
-    <div id="announcement-component"></div>
-    <!-- Announcement Bar -->
-
-    <!-- Navbar Web -->
-    <nav class="navbar-consumr">
-
-        <div class="guac-container guac-d-flex guac-align-center guac-justify-between">
-
-            <!-- Brand -->
-            <a href="/" class="navbar-brand-consumr guac-d-flex guac-align-center">
-                <img src="/images/logo/logo-256-white.png" class="navbar-logo-sizing">
-                <span>Consumr.dk</span>
-            </a>
-
-            <!-- Links -->
-            <ul class="guac-d-flex guac-align-center guac-gap-3 nav-links">
-
-                <li class="dropdown">
-                    <button class="dropdown-toggle">
-                        Skriv en anmeldelse <i class="fa fa-chevron-down"></i>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Søg efter produkt</a></li>
-                        <li><a href="#">Søg efter brand</a></li>
-                    </ul>
-                </li>
-
-                <li class="dropdown">
-                    <button class="dropdown-toggle">
-                        Top listen <i class="fa fa-chevron-down"></i>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Top 100 listen</a></li>
-                        <li><a href="#">Bedst ratede</a></li>
-                        <li><a href="#">Bruger leaderboard</a></li>
-                    </ul>
-                </li>
-
-                <li class="dropdown">
-                    <button>Kategorier</button>
-                </li>
-
-                <li class="dropdown">
-                    <button>Vores mission</button>
-                </li>
-
-            </ul>
-
-            <!-- Actions -->
-            <div class="guac-d-flex guac-gap-2">
-                <button class="guac-btn consumr-logind-btn">Log ind</button>
-                <button class="guac-btn consumr-opret-btn">Opret Bruger</button>
-            </div>
-
-        </div>
-    </nav>
-    <!-- Navbar Web -->
-
-</header>
-<!-- Header Stack -->
+<!-- Header Load -->
+<div id="header-component"></div>
+<!-- Header Load -->
 
 <!-- Hero Section -->
 <section class="section-hero">
@@ -116,40 +55,45 @@
         </h1>
         <div class="input-group">
             <input type="text" id="consumr-search-index" placeholder="Søg efter produkt...">
-            <button class="btn-send"><i class="fa fa-search"></i></button>
+            <button class="btn-send">Søg <i class="fa fa-search"></i></button>
         </div>
         <div class="integration-buttons">
             <button class="integration-btn">
-                <i class="fa fa-shield"></i>
-                <span>Threat Detection</span>
+                <i class="fa fa-star"></i>
+                <span>Ægte anmeldelser</span>
             </button>
 
             <button class="integration-btn">
-                <i class="fa fa-line-chart"></i>
-                <span>Safety Score</span>
+                <i class="fa fa-barcode"></i>
+                <span>Søg produkter</span>
             </button>
 
             <button class="integration-btn">
                 <i class="fa fa-globe"></i>
-                <span>Browser Extension</span>
+                <span>Alle produkter</span>
             </button>
 
             <button class="integration-btn">
-                <i class="fa fa-bell"></i>
-                <span>Real-time Alerts</span>
+                <i class="fa fa-users"></i>
+                <span>Din mening gælder</span>
             </button>
+
         </div>
 
-        <!-- End Wave -->
-
-        <!-- End Wave -->
-
     </div>
+
 </section>
 <!-- Hero Section -->
 
+<!-- Wave Section -->
+<section class="wave-transition-top-to-bottom">
+    <img src="/images/svg/waves/wave_1_hero.svg" class="wave-svg">
+</section>
+<!-- Wave Section -->
+
 <!-- User Reviews Section -->
 <section class="section-user-review">
+
     <div class="guac-container">
 
         <div class="review-info guac-text-center guac-align-center">

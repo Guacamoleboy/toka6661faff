@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Meta -->
+    <meta charset="UTF-8"> <!-- ÆØÅ -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- In case some nerd uses Internet Explorer -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Mobile Responsiveness -->
+    <meta name="description" content="Beregn prisen på din carport i dag på få minutter"> <!-- SEO / Google -->
+    <meta name="author" content="Guacamoleboy"> <!-- Author of Website -->
+
+    <!-- Visuals -->
+    <title>Consumr - slogan her</title>
+
+    <!-- Icon -->
+    <link rel="icon" href="/images/logo/logo-256-white.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/images/logo/logo-256-white.png">
+
+    <!-- Framework Load -->
+    <link rel="stylesheet" href="/css/guacamoleboy-wow.css">
+    <link rel="stylesheet" href="/css/guacamoleboy-framework.css">
+    <script src="/js/guacamoleboy-wow.js" defer></script>
+
+    <!-- CSS Load -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Font Awesome Load -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Script Load-->
+    <script src="/js/notification.js" defer></script>
+    <script src="/js/bubble-spawn.js" defer></script>
+    <script src="/js/circle-movement.js" defer></script>
+    <script src="/js/guacamoleboy-dropdown.js" defer></script>
+    <script src="/js/review/steps-dynamic.js" defer></script>
+
+    <!-- Modules -->
+    <script type="module" src="/js/components/header.js" defer></script>
+
+</head>
+<body>
+
+<!-- Header Load -->
+<div id="header-component"></div>
+<!-- Header Load -->
+
+<!-- Create Review Section -->
+<section class="custom-product-review">
+    <div class="guac-container">
+
+        <div class="guac-row review-box">
+
+            <div class="step">
+
+                <!-- Step Header -->
+                <div class="step-header">
+                    <p class="review-intro">Produktanmeldelse</p>
+                    <h1 class="review-title">Kims Ostepops</h1>
+                    <p class="review-subtitle">Din personlige vurdering af produktet</p>
+                </div>
+                <!-- Step Header -->
+
+                <!-- Divider Line -->
+                <div class="step-divider"></div>
+                <!-- Divider Line -->
+
+                <!-- Step Content -->
+                <div class="step-content">
+                    <p class="guac-text-center step-question">Hvad synes du om smagen?</p>
+                    <input type="range" class="range-slider" min="1.0" max="5.0" step="0.1" value="3.0">
+                    <p class="range-value guac-text-center">3.0 - Middel</p>
+                </div>
+                <!-- Step Content -->
+
+                <!-- Divider Line -->
+                <div class="step-divider"></div>
+                <!-- Divider Line -->
+
+                <!-- Optional Comment -->
+                <div class="step-comment">
+                    <p class="guac-text-center">Valgfri kommentar</p>
+                    <textarea placeholder="Skriv her..." class="comment-input"></textarea>
+                </div>
+                <!-- Optional Comment -->
+
+                <!-- Divider Line -->
+                <div class="step-divider"></div>
+                <!-- Divider Line -->
+
+                <!-- Button Group -->
+                <div class="review-button-group">
+                    <button class="btn-prev">Tilbage</button>
+                    <button class="btn-next">Næste</button>
+                </div>
+                <!-- Button Group -->
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- Notifications -->
+<div id="guac-notification-container"></div>
+<!-- Notifications -->
+
+</body>
