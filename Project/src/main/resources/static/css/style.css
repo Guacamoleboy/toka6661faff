@@ -168,7 +168,7 @@ body::-webkit-scrollbar { /* All other browsers */
     background-color: var(--consumr-nav-dropdown-background);
     border-radius: 0.5rem;
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    padding: 0.25rem 0;
+    padding: 0;
     z-index: 1000;
 }
 
@@ -195,7 +195,7 @@ body::-webkit-scrollbar { /* All other browsers */
 }
 
 .dropdown-menu a:hover {
-    background-color: rgba(0, 145, 142, 0.75);
+    background-color: #509b74;
 }
 
 /* ################################################################### */
@@ -271,7 +271,7 @@ body::-webkit-scrollbar { /* All other browsers */
 }
 
 .section-hero h1 span {
-    color: var(--consumr-theme) !important;
+    color: #6ab990 !important;
 }
 
 .section-hero p {
@@ -304,9 +304,9 @@ body::-webkit-scrollbar { /* All other browsers */
 }
 
 .integration-btn:hover {
-    background: var(--consumr-theme);
+    background: #509b74;
     transform: translateY(-2px);
-    box-shadow: 0 0 12px var(--consumr-theme), 0 0 4px var(--consumr-theme, rgba(123, 108, 246, 0.3));
+    box-shadow: 0 0 12px #509b74, 0 0 4px #509b74;
     color: var(--consumr-white);
 }
 
@@ -314,8 +314,8 @@ body::-webkit-scrollbar { /* All other browsers */
     font-size: 1rem;
 }
 
-.btn-send {
-    background: rgba(0, 145, 142, 0.8);
+.btn-send, .btn-scan {
+    background: #509b74;
     border: none;
     color: white;
     padding: 0.5rem 0.75rem;
@@ -328,17 +328,17 @@ body::-webkit-scrollbar { /* All other browsers */
     font-size: 1rem;
 }
 
-.btn-send i {
+.btn-send i, .btn-scan i {
     margin-left: 1rem !important;
 }
 
-.btn-send:hover {
-    background: var(--consumr-theme);
+.btn-send:hover, .btn-scan:hover {
+    background: #509b74;
     transform: translateY(-1px);
-    box-shadow: 0 2px 6px rgba(0, 145, 142, 0.4);
 }
 
 .input-group {
+    position: relative;
     max-width: 700px;
     margin: 0 auto 1.5rem;
     background: rgba(28,28,28,0.16);
@@ -371,6 +371,45 @@ body::-webkit-scrollbar { /* All other browsers */
     height: auto;
 }
 
+.search-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 50%;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: none;
+}
+
+.search-dropdown .search-item {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+
+.search-dropdown .search-item:last-child {
+    border-bottom: none;
+}
+
+.search-dropdown .search-item img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    margin-right: 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.search-dropdown .search-item:hover {
+    background-color: #f0f0f0;
+}
+
 /* ################################################################### */
 /*                              Buttons                                */
 /* ################################################################### */
@@ -401,11 +440,7 @@ body::-webkit-scrollbar { /* All other browsers */
 }
 
 .consumr-opret-btn {
-    background: linear-gradient(
-            45deg,
-            var(--consumr-button-grad-one),
-            var(--consumr-button-grad-two)
-    );
+    background: #579575;
     color: var(--consumr-white);
     box-shadow:
             0 4px 16px rgba(0,0,0,0.25),
@@ -665,7 +700,7 @@ body::-webkit-scrollbar { /* All other browsers */
     position: absolute;
     left: 0;
     bottom: -10px;
-    width: 8rem;
+    width: 4rem;
     height: 3px;
     background: var(--consumr-white);
     border-radius: 2px;
@@ -1184,4 +1219,75 @@ body::-webkit-scrollbar { /* All other browsers */
         opacity: 0;
         transform: scale(1.5);
     }
+}
+
+/* ################################################################### */
+/*                         Log Ind & Register                          */
+/* ################################################################### */
+
+.section-consumr-login {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.guac-login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-card {
+    max-width: 500px;
+    width: 90%;
+    padding: 2.5rem;
+    border-radius: 1rem;
+    text-align: center;
+    box-shadow: 0 6px 1px rgba(0,0,0,0.6);
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.login-form input {
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+.btn-login {
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    background-color: #426d57;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-login:hover {
+    background-color: #365645;
+}
+
+.forgot-password {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+}
+
+.forgot-password a {
+    color: #426d57;
+    text-decoration: underline;
+}
+
+.login-card input:focus,
+.register-card input:focus {
+    border: 2px solid var(--consumr-theme);
+    outline: none;
 }

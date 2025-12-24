@@ -2,6 +2,7 @@ CREATE EXTENSION IF NOT EXISTS pgcrypto;
 
 TRUNCATE TABLE
 category,
+subcategory,
 product,
 product_info,
 role,
@@ -11,20 +12,25 @@ electronics_review
 RESTART IDENTITY CASCADE;
 
 INSERT INTO category (name, description) VALUES
-('Food', 'All edible consumer products'),
-('Electronics', 'Electronic devices and accessories');
+('Mad', 'All edible consumer products'),
+('Elektronik', 'Electronic devices and accessories'),
+('Drikkevarer', 'Alt væske som kan indtages');
+
+INSERT INTO subcategory (category_id, name, description) VALUES
+(2, 'Headphones', 'Wireless and wired headphones'),
+(2, 'Laptops', 'Portable computers'),
+(2, 'Smartphones', 'Mobile devices'),
+(1, 'Frugt', 'Fresh fruits'),
+(1, 'Grøntsager', 'Fresh vegetables'),
+(1, 'Snacks', 'Chips, candies, and other snacks'),
+(3, 'Energidrik', 'Boom! Release the beast.'),
+(3, 'Læskedrik', 'Cola, pepsi, Faxe - you name it');
 
 INSERT INTO product_info (name, description) VALUES
-('Pepsi Max', 'Sugar free cola with maximum taste'),
-('Monster Energy Green', 'Energy drink with classic Monster flavor'),
-('iPhone 14', 'Apple smartphone released in 2022'),
-('Sony WH-1000XM5', 'Noise cancelling wireless headphones');
+('Monster Energy Green', 'Energy drink with classic Monster flavor');
 
-INSERT INTO product (barcode, title, product_info_id, category_id) VALUES
-('5449000000996', 'Pepsi Max 500ml', 1, 1),
-('5060166691234', 'Monster Energy Original 500ml', 2, 1),
-('0194253401440', 'iPhone 14 128GB Black', 3, 2),
-('4548736133050', 'Sony WH-1000XM5 Black', 4, 2);
+INSERT INTO product (barcode, product_info_id, category_id, subcategory_id, image_path) VALUES
+('5060337502900', 1, 3, 7, '/images/products/5060337502900.png');
 
 INSERT INTO role (name) VALUES
 ('USER'),

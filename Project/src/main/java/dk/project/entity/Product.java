@@ -10,7 +10,9 @@ public class Product {
     private String barcode;
     private String title;
     private int productInfoId;
+    private String imagePath;
     private int categoryId;
+    private int subcategoryId;
     private LocalDateTime createdAt;
 
     // ___________________________________________________________
@@ -20,21 +22,14 @@ public class Product {
 
     // ___________________________________________________________
 
-    public Product(String barcode, String title, int productInfoId, int categoryId, LocalDateTime createdAt) {
+    public Product(String barcode, String title, int productInfoId, int categoryId, LocalDateTime createdAt, String imagePath, int subcategoryId) {
         this.barcode = barcode;
         this.title = title;
         this.productInfoId = productInfoId;
         this.categoryId = categoryId;
         this.createdAt = createdAt;
-    }
-
-    // ___________________________________________________________
-
-    public Product(String barcode, String title, int productInfoId, int categoryId) {
-        this.barcode = barcode;
-        this.title = title;
-        this.productInfoId = productInfoId;
-        this.categoryId = categoryId;
+        this.imagePath = imagePath;
+        this.subcategoryId = subcategoryId;
     }
 
     // ___________________________________________________________
@@ -95,6 +90,30 @@ public class Product {
 
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
+    }
+
+    // ___________________________________________________________
+
+    public int getSubcategoryId() {
+        return subcategoryId;
+    }
+
+    // ___________________________________________________________
+
+    public void setSubcategoryId(int subcategoryId) {
+        this.subcategoryId = subcategoryId;
+    }
+
+    // ___________________________________________________________
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    // ___________________________________________________________
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 
 }
