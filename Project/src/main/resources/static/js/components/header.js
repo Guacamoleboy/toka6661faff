@@ -5,7 +5,7 @@ const headerHTML = `
     <!-- Announcement Bar -->
     <div class="announcement-bar">
         <div class="announcement-track">
-            <span>Consumr Version 1.0 er klar! | Skriv en anmeldelse for et produkt - helt gratis</span>
+            <span>Consumr er lige pt i pre-release testing... | Du er velkommen til at teste hvis du ønsker</span>
         </div>
     </div>
     <!-- Announcement Bar -->
@@ -57,8 +57,12 @@ const headerHTML = `
 
             <!-- Actions -->
             <div class="guac-d-flex guac-gap-2">
-                <button class="guac-btn consumr-logind-btn">Log ind</button>
-                <button class="guac-btn consumr-opret-btn">Opret Bruger</button>
+                <a href="/login">
+                    <button class="guac-btn consumr-logind-btn">Log ind</button>
+                </a>
+                <a href="/register">
+                    <button class="guac-btn consumr-opret-btn">Opret Bruger</button>
+                </a>
             </div>
 
         </div>

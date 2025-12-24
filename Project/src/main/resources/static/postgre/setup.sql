@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS
 category,
+subcategory,
 product,
 product_info,
 role,
@@ -14,7 +15,15 @@ name TEXT UNIQUE NOT NULL,                                                      
 description TEXT                                                                        -- UI
 );
 
-CREATE TABLE product_info (                                                             -- UI product information
+CREATE TABLE subcategory (                                                              -- Ex. Elektronik / Lyd
+id SERIAL PRIMARY KEY,
+category_id INT NOT NULL REFERENCES category(id) ON DELETE CASCADE,                     -- Follows category id (main)
+name TEXT NOT NULL,
+description TEXT,
+UNIQUE(category_id, name)
+);
+
+CREATE TABLE product_info (
 id SERIAL PRIMARY KEY,
 name TEXT NOT NULL,
 description TEXT NOT NULL
@@ -22,10 +31,11 @@ description TEXT NOT NULL
 
 CREATE TABLE product (
 barcode TEXT PRIMARY KEY,                                                               -- EAN number
-title TEXT NOT NULL,
-product_info_id INT NOT NULL REFERENCES product_info(id),                               -- In the long run add description
-category_id INT NOT NULL REFERENCES category(id),                                       -- Product Category
-created_at TIMESTAMP DEFAULT now()                                                      -- Origin date of addition
+product_info_id INT NOT NULL REFERENCES product_info(id),
+category_id INT NOT NULL REFERENCES category(id),
+subcategory_id INT NOT NULL REFERENCES subcategory(id),
+image_path TEXT NOT NULL UNIQUE,
+created_at TIMESTAMP DEFAULT now()
 );
 
 CREATE TABLE role (

@@ -32,6 +32,7 @@
     <script src="/js/circle-movement.js" defer></script>
     <script src="/js/guacamoleboy-dropdown.js" defer></script>
     <script src="/js/circle-movement.js" defer></script>
+    <script src="/js/search/input-dynamic.js" defer></script>
 
     <!-- Modules -->
     <script type="module" src="/js/components/header.js" defer></script>
@@ -46,6 +47,7 @@
 <!-- Hero Section -->
 <section class="section-hero">
     <div class="guac-container guac-text-center">
+
         <img src="/images/logo/logo-256-white.png" class="logo-small" alt="WebBuddy Logo">
         <p class="guac-fw-bold">
             FIND ANMELDELSER FOR ALLE PRODUKTER - HELT GRATIS
@@ -53,11 +55,19 @@
         <h1>
             Smag, mærk, vurder – <span>del din oplevelse.</span>
         </h1>
+
         <div class="input-group">
             <input type="text" id="consumr-search-index" placeholder="Søg efter produkt...">
-            <button class="btn-send">Scan <i class="fa fa-barcode"></i></button>
+
+            <button class="btn-scan" id="scan-btn">
+                Scan <i class="fa fa-barcode"></i>
+            </button>
+            <video id="camera" autoplay playsinline style="width:100%; display:none;"></video>
             <button class="btn-send">Søg <i class="fa fa-search"></i></button>
         </div>
+
+        <div id="search-results" class="search-dropdown"></div>
+
         <div class="integration-buttons">
             <button class="integration-btn">
                 <i class="fa fa-star"></i>
@@ -87,124 +97,12 @@
 <!-- Hero Section -->
 
 <!-- Wave Section -->
+<!--
 <section class="wave-transition-top-to-bottom">
     <img src="/images/svg/waves/wave_1_hero.svg" class="wave-svg">
 </section>
+-->
 <!-- Wave Section -->
-
-<!-- User Reviews Section -->
-<section class="section-user-review">
-
-    <div class="guac-container">
-
-        <div class="review-info guac-text-center guac-align-center">
-            <p>Et lille udvalg</p>
-            <h2>Seneste anmeldte produkter</h2>
-            <p>Tryk og læs mere!</p>
-        </div>
-
-        <div class="guac-grid-3 guac-gap-4">
-
-            <!-- Card One -->
-            <div class="guac-card">
-                <img src="/images/products/test1.png" alt="Produkt 1">
-
-                <!-- Left info box -->
-                <div class="card-info-left">
-                    <p class="product-title">Produkt Titel</p>
-                    <p class="product-category">Kategori</p>
-                </div>
-
-                <!-- Right info box -->
-                <div class="card-info-right">
-                    <p class="product-rating">⭐⭐⭐⭐</p>
-                </div>
-            </div>
-
-            <!-- Card Two -->
-            <div class="guac-card">
-                <img src="/images/products/test2.png" alt="Produkt 1">
-
-                <!-- Left info box -->
-                <div class="card-info-left">
-                    <p class="product-title">Produkt Titel</p>
-                    <p class="product-category">Kategori</p>
-                </div>
-
-                <!-- Right info box -->
-                <div class="card-info-right">
-                    <p class="product-rating">⭐⭐⭐⭐⭐</p>
-                </div>
-            </div>
-
-            <!-- Card Three -->
-            <div class="guac-card">
-                <img src="/images/products/test3.png" alt="Produkt 1">
-
-                <!-- Left info box -->
-                <div class="card-info-left">
-                    <p class="product-title">Produkt Titel</p>
-                    <p class="product-category">Kategori</p>
-                </div>
-
-                <!-- Right info box -->
-                <div class="card-info-right">
-                    <p class="product-rating">⭐⭐</p>
-                </div>
-            </div>
-
-            <!-- Card Four -->
-            <div class="guac-card">
-                <img src="/images/products/test4.png" alt="Produkt 1">
-
-                <!-- Left info box -->
-                <div class="card-info-left">
-                    <p class="product-title">Produkt Titel</p>
-                    <p class="product-category">Kategori</p>
-                </div>
-
-                <!-- Right info box -->
-                <div class="card-info-right">
-                    <p class="product-rating">⭐⭐⭐</p>
-                </div>
-            </div>
-
-            <!-- Card Five -->
-            <div class="guac-card">
-                <img src="/images/products/test5.png" alt="Produkt 1">
-
-                <!-- Left info box -->
-                <div class="card-info-left">
-                    <p class="product-title">Produkt Titel</p>
-                    <p class="product-category">Kategori</p>
-                </div>
-
-                <!-- Right info box -->
-                <div class="card-info-right">
-                    <p class="product-rating">⭐⭐⭐</p>
-                </div>
-            </div>
-
-            <!-- Card Six -->
-            <div class="guac-card">
-                <img src="/images/products/test6.png" alt="Produkt 1">
-
-                <!-- Left info box -->
-                <div class="card-info-left">
-                    <p class="product-title">Produkt Titel</p>
-                    <p class="product-category">Kategori</p>
-                </div>
-
-                <!-- Right info box -->
-                <div class="card-info-right">
-                    <p class="product-rating">⭐⭐⭐⭐⭐</p>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-<!-- User Reviews Section -->
 
 <!-- How it works Section -->
 <section class="section-why-us">
