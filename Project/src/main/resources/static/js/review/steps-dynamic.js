@@ -136,7 +136,10 @@ function updateStep() {
     loadStepData();
 
     if (slider) {
-        slider.oninput = () => updateSliderLabel(slider, valueDisplay);
+        slider.oninput = () => {
+            updateSliderLabel(slider, valueDisplay);
+            updateSliderColor(slider);
+        };
         slider.oninput();
     }
 
@@ -166,5 +169,43 @@ btnNext.addEventListener('click', () => {
         updateStep();
     }
 });
+
+function getColorFromValue(value, min, max) {
+    const percent = (value - min) / (max - min);
+    let r, g, b;
+
+    if (percent <= 0.5) {
+        r = 255;
+        g = Math.round(510 * percent);
+        b = 0;
+    } else {
+        r = Math.round(510 * (1 - percent));
+        g = 255;
+        b = 0;
+    }
+
+    return `rgb(${r}, ${g}, ${b})`;
+}
+
+function updateSliderColor(slider) {
+    const min = parseFloat(slider.min);
+    const max = parseFloat(slider.max);
+    const val = parseFloat(slider.value);
+
+    const percent = ((val - min) / (max - min)) * 100;
+    const color = getColorFromValue(val, min, max);
+
+    slider.style.background = `
+        linear-gradient(
+            to right,
+            ${color} 0%,
+            ${color} ${percent}%,
+            rgba(255,255,255,0.2) ${percent}%,
+            rgba(255,255,255,0.2) 100%
+        )
+    `;
+
+    slider.style.setProperty('--thumb-color', color);
+}
 
 updateStep();
