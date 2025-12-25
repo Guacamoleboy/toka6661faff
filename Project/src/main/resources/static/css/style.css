@@ -7,7 +7,7 @@
     --consumr-button-grad-two: #158380;                                             /* Gradient Color Two */
 
     /* Colors */
-    --consumr-theme: #00918e;
+    --consumr-theme: #426d57;
     --consumr-orange: orange;
     --consumr-red: red;
     --consumr-blue: blue;
@@ -410,6 +410,10 @@ body::-webkit-scrollbar { /* All other browsers */
     background-color: #f0f0f0;
 }
 
+.dynamic-word-visuals span:first-child {
+    color: var(--consumr-white) !important;
+}
+
 /* ################################################################### */
 /*                              Buttons                                */
 /* ################################################################### */
@@ -558,6 +562,12 @@ body::-webkit-scrollbar { /* All other browsers */
     z-index: 2;
 }
 
+.product-title, .category, .description {
+    text-shadow:
+            1px 1px 0 rgba(0,0,0,0.25),
+            2px 2px 4px rgba(0,0,0,0.35);
+}
+
 /* ################################################################### */
 /*                          Wave Transition                            */
 /* ################################################################### */
@@ -572,28 +582,26 @@ body::-webkit-scrollbar { /* All other browsers */
 /* ################################################################### */
 
 .section-product-review {
-    overflow: hidden;                                                                   /* DO NOT REMOVE */
     display: flex;
-    flex-direction: row;
     height: calc(100vh - var(--consumr-header-height));
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color:#648f7e;
+    overflow: hidden;
+    background-color: #648f7e;
+    position: relative;
 }
 
 .product-review-left {
-    flex: 3;
-    position: relative;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    z-index: 1;
 }
 
 .product-review-left .product-review-main {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
-    margin: 0;
-    padding: 0;
 }
 
 .more-photos-preview {
@@ -602,7 +610,7 @@ body::-webkit-scrollbar { /* All other browsers */
     right: 0;
     display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: 0.5rem;
     z-index: 2;
 }
 
@@ -620,17 +628,22 @@ body::-webkit-scrollbar { /* All other browsers */
 }
 
 .product-review-right {
+    margin-left: 50%;
+    flex: 1;
+    height: 100%;
+    overflow-y: auto;
+    padding: 2rem;
+    box-sizing: border-box;
     border-left: 4px solid rgba(255,255,255,0.3);
-    flex: 0 0 50%;
+    color: #fff;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     gap: 1rem;
-    color: #fff;
-    height: auto;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    box-sizing: border-box;
+    scrollbar-width: none;
+}
+
+.product-review-right::-webkit-scrollbar {
+    display: none;
 }
 
 .button-wrapper-product {
@@ -652,11 +665,7 @@ body::-webkit-scrollbar { /* All other browsers */
 
 .btn-review {
     margin-bottom: 1rem !important;
-    background: linear-gradient(
-            45deg,
-            var(--consumr-button-grad-one),
-            var(--consumr-button-grad-two)
-    );
+    background-color: #527f6d;
     color: #fff;
     box-shadow: 0 4px 2px rgba(0,0,0,0.3);
 }
@@ -707,9 +716,9 @@ body::-webkit-scrollbar { /* All other browsers */
 }
 
 .product-info .description {
-    max-width: 55ch;
+    max-width: 60ch;
     padding-top: 1rem !important;
-    font-size: 0.8rem;
+    font-size: 1rem;
     line-height: 1.5;
 }
 
@@ -760,10 +769,11 @@ body::-webkit-scrollbar { /* All other browsers */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: 500;
     color: #fff;
     margin-bottom: 0.5rem;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.3), 2px 2px 4px rgba(0,0,0,0.2);
 }
 
 .rating-item:hover {
@@ -780,6 +790,7 @@ body::-webkit-scrollbar { /* All other browsers */
 }
 
 .rating-bar {
+    box-shadow: 0 3px 2px rgba(0,0,0,0.2);
     width: 100%;
     height: 12px;
     background-color: rgba(255,255,255,0.15);
@@ -832,6 +843,136 @@ body::-webkit-scrollbar { /* All other browsers */
     text-align: left;
 }
 
+.comment-section {
+    height: auto;
+    overflow: visible;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.comment-filters {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.comment-filters label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #fff;
+}
+
+.comment-filters select {
+    padding: 0.4rem 0.6rem;
+    border-radius: 0.5rem;
+    border: 2px solid #426d57;
+    background-color: #fff;
+    font-size: 0.85rem;
+    color: #333;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: none;
+    outline: none;
+}
+
+.comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-height: none;
+    overflow: visible;
+}
+
+.comment {
+    background-color: #e3e3e3;
+    border: 2px solid #426d57;
+    border-radius: 0.5rem;
+    padding: 1.25rem 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #333;
+}
+
+.comment-author {
+    color: #333;
+}
+
+.comment-date {
+    font-weight: 400;
+    font-size: 0.85rem;
+    color: #555;
+}
+
+.comment-body {
+    max-width: 70ch !important;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.comment-rating {
+    border-left: 4px solid #426d57;
+    border-radius: 0.25rem;
+    padding: 1.25rem 1.25rem;
+    background-color: #d3d3d3;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.comment-total-intro, .comment-total-rating {
+    font-size: 0.8rem;
+    font-weight: 600 !important;
+    color: #333;
+}
+
+.load-more-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.btn-load-more {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 2px solid #426d57;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    background-color: #FFF;
+    color: #333;
+    box-shadow: 0 4px 2px rgba(0,0,0,0.3);
+    transition: all 0.2s ease;
+}
+
+.btn-load-more:hover {
+    opacity: 0.85;
+    transform: translateY(1px);
+}
+
+.comment-rating .rating-bar {
+    height: 16px;
+    box-shadow: 0 3px 2px rgba(0,0,0,0.3);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 0.25rem;
+}
+
 /* ################################################################### */
 /*                              Badges                                 */
 /* ################################################################### */
@@ -840,12 +981,12 @@ body::-webkit-scrollbar { /* All other browsers */
     display: inline-block;
     font-weight: 700;
     font-size: 0.7rem;
-    padding: 0.3rem 0.6rem;
-    border-radius: 12px;
+    padding: 0.4rem 0.7rem;
+    border-radius: 0.75rem;
     color: #fff;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    box-shadow: 0 3px 2px rgba(0,0,0,0.3);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     cursor: default;
 }
@@ -855,8 +996,8 @@ body::-webkit-scrollbar { /* All other browsers */
 }
 
 .badge:hover {
-    transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 2px rgba(0,0,0,0.3);
 }
 
 .badge-popular {
@@ -1313,12 +1454,82 @@ body::-webkit-scrollbar { /* All other browsers */
 }
 
 .consumr-logo-preloader {
-    width: 5%;
+    width: 20%;
     height: auto;
 }
 
-.preloader h2 {
-    margin-top: 0;
-    font-size: 2rem;
-    color: var(--consumr-white);
+/* ################################################################### */
+/*                              Scanner                                */
+/* ################################################################### */
+
+#scanner-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 99999;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#scanner-overlay.visible {
+    display: flex;
+}
+
+#scan-box, #close-scan-btn {
+    pointer-events: all;
+}
+
+#overlay-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(54, 86, 69, 1);
+    pointer-events: none;
+    z-index: 99999;
+}
+
+#scan-box {
+    position: relative;
+    width: 80vw;
+    max-width: 300px;
+    aspect-ratio: 2.5 / 1;
+    border: 2px solid red;
+    box-sizing: border-box;
+    z-index: 100000;
+    pointer-events: all;
+    margin-bottom: 20px;
+}
+
+#close-scan-btn {
+    z-index: 100001;
+    padding: 12px 18px;
+    background: rgba(255,255,255,0.9);
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    align-self: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#reader {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 99998;
+    pointer-events: none;
 }

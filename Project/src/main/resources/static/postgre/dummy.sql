@@ -1,14 +1,17 @@
 CREATE EXTENSION IF NOT EXISTS pgcrypto;
 
 TRUNCATE TABLE
-category,
-subcategory,
+product_badge,
+badge_definition,
+review_rating,
+rating_definition,
+review,
+users,
+role,
 product,
 product_info,
-role,
-users,
-food_review,
-electronics_review
+subcategory,
+category
 RESTART IDENTITY CASCADE;
 
 INSERT INTO category (name, description) VALUES
@@ -38,62 +41,47 @@ INSERT INTO role (name) VALUES
 ('API ACCESS'),
 ('ADMIN');
 
-INSERT INTO users (username_hashed, email_hashed, password_hash, role_id) VALUES
+INSERT INTO users (username, email_hashed, password_hash, role_id) VALUES
 (
-encode(digest('user1', 'sha256'), 'hex'),
-encode(digest('user1@email.com', 'sha256'), 'hex'),
-crypt('password123', gen_salt('bf')),
-1
+'jonaslarsen_',
+encode(digest('test@travlr.dk', 'sha256'), 'hex'),
+crypt('password', gen_salt('bf')),
+4
 ),
 (
-encode(digest('user2', 'sha256'), 'hex'),
-encode(digest('user2@email.com', 'sha256'), 'hex'),
-crypt('password456', gen_salt('bf')),
+'customer',
+encode(digest('customer@email.com', 'sha256'), 'hex'),
+crypt('customer', gen_salt('bf')),
 1
 );
 
-INSERT INTO food_review (product_barcode,user_id,rating,price_rating,flavor_rating,would_buy_again,improvements,comment) VALUES
-(
-'5449000000996',
-1,
-5,
-4,
-5,
-true,
-'Could be slightly less carbonated',
-'Best sugar free cola on the market'
-),
-(
-'5060166691234',
-2,
-4,
-3,
-4,
-true,
-NULL,
-'Great energy boost, but a bit expensive'
-);
 
-INSERT INTO electronics_review (product_barcode,user_id,rating,durability_rating,ease_of_use_rating,design_rating,would_recommend,improvements,comment) VALUES
-(
-'0194253401440',
-1,
-5,
-5,
-5,
-5,
-true,
-NULL,
-'Extremely smooth performance and great camera'
-),
-(
-'4548736133050',
-2,
-4,
-4,
-5,
-5,
-true,
-'Could improve microphone quality',
-'Excellent noise cancellation and comfort'
-);
+INSERT INTO badge_definition (code, label) VALUES
+('popular', 'Populær'),
+('top100', 'Top 100'),
+('eco', 'Økologisk'),
+('best', 'Bedst vurderet'),
+('new', 'Nyhed'),
+('newProduct', 'Nyt produkt'),
+('top10', 'Top 10'),
+('justAdded', 'Lige tilføjet'),
+('newVersion', 'Ny version'),
+('newTaste', 'Ny smag'),
+('newPackaging', 'Ny emballage'),
+('top10Category', 'Top 10 i kategori');
+
+INSERT INTO rating_definition (subcategory_id, label, rating_type) VALUES
+(7, 'Smag', 'SCALE_1_5'),
+(7, 'Energi boost', 'SCALE_1_5'),
+(7, 'Pris', 'SCALE_1_5');
+
+INSERT INTO review (product_barcode, user_id, final_comment) VALUES
+('5060337502900', 1, 'Super lækker energi, perfekt til træning');
+
+INSERT INTO review_rating (review_id, rating_definition_id, value, comment) VALUES
+(1, 1, 4.5, 'Smagen er klassisk Monster'),
+(1, 2, 4.8, 'Giver et hurtigt energi boost'),
+(1, 3, 3.5, 'En smule dyr men det er okay');
+
+INSERT INTO product_badge (product_barcode, badge_id) VALUES
+('5060337502900', 8);

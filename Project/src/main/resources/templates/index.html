@@ -10,7 +10,7 @@
     <meta name="author" content="Guacamoleboy"> <!-- Author of Website -->
 
     <!-- Visuals -->
-    <title>Consumr - slogan her</title>
+    <title>Consumr - Del din oplevelse</title>
 
     <!-- Icon -->
     <link rel="icon" href="/images/logo/logo-256-white.png" type="image/x-icon">
@@ -27,12 +27,18 @@
     <!-- Font Awesome Load -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <!-- Barcode Scanner -->
+    <script src="https://unpkg.com/html5-qrcode"></script>
+    <script src="/js/scanner/barcode-scanner.js" defer></script>
+
     <!-- Script Load-->
     <script src="/js/notification.js" defer></script>
+    <script src="/js/auth/pathing-redirect.js" defer></script>
     <script src="/js/circle-movement.js" defer></script>
     <script src="/js/guacamoleboy-dropdown.js" defer></script>
     <script src="/js/circle-movement.js" defer></script>
     <script src="/js/search/input-dynamic.js" defer></script>
+    <script src="/js/index/dynamic-text.js" defer></script>
 
     <!-- Modules -->
     <script type="module" src="/js/components/header.js" defer></script>
@@ -42,8 +48,7 @@
 
 <!-- Preloader -->
 <div class="preloader">
-    <img src="/images/logo/logo-256-white.png" alt="Consumr Logo" class="consumr-logo-preloader">
-    <h2>consumr.dk</h2>
+    <img src="/images/logo/preloader-2.png" alt="Preloader Logo" class="consumr-logo-preloader">
 </div>
 <!-- Preloader -->
 
@@ -57,21 +62,36 @@
 
         <img src="/images/logo/logo-256-white.png" class="logo-small" alt="WebBuddy Logo">
         <p class="guac-fw-bold">
-            FIND ANMELDELSER FOR ALLE PRODUKTER - HELT GRATIS
+            FIND ANMELDELSER FOR ALLE PRODUKTER
         </p>
-        <h1>
-            Smag, mærk, vurder – <span>del din oplevelse.</span>
+        <h1 class="dynamic-word-visuals">
+            <span id="dynamic-word"></span> – <span>del din oplevelse.</span>
         </h1>
 
         <div class="input-group">
+
+            <!-- User Input (Dynamic) -->
             <input type="text" id="consumr-search-index" placeholder="Søg efter produkt...">
 
+            <!-- Scanner Button -->
             <button class="btn-scan" id="scan-btn">
                 Scan <i class="fa fa-barcode"></i>
             </button>
-            <video id="camera" autoplay playsinline style="width:100%; display:none;"></video>
+
+            <!-- Scanner overlay -->
+            <div id="scanner-overlay" class="hidden">
+                <div id="overlay-bg"></div>
+                <div id="scan-box"></div>
+                <button id="close-scan-btn">Luk</button>
+            </div>
+
+            <!-- Camera Reader -->
+            <div id="reader"></div>
+
+            <!-- Search Button -->
             <button class="btn-send">Søg <i class="fa fa-search"></i></button>
         </div>
+
 
         <div id="search-results" class="search-dropdown"></div>
 

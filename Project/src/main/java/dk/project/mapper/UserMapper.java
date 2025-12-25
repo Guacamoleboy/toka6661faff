@@ -17,14 +17,14 @@ public class UserMapper {
 
     public void create(User user) throws DatabaseException {
         String sql = """
-            INSERT INTO users (username_hashed, email_hashed, password_hash, role_id, created_at)
+            INSERT INTO users (username, email_hashed, password_hash, role_id, created_at)
             VALUES (?, ?, ?, ?, ?)
             """;
 
         try (Connection conn = Database.getConnection();
             PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
-            stmt.setString(1, user.getUsernameHashed());
+            stmt.setString(1, user.getUsername());
             stmt.setString(2, user.getEmailHashed());
             stmt.setString(3, user.getPasswordHash());
             stmt.setInt(4, user.getRoleId());
@@ -56,7 +56,7 @@ public class UserMapper {
                 if (rs.next()) {
                     return new User(
                             rs.getInt("id"),
-                            rs.getString("username_hashed"),
+                            rs.getString("username"),
                             rs.getString("email_hashed"),
                             rs.getString("password_hash"),
                             rs.getInt("role_id"),
@@ -67,6 +67,36 @@ public class UserMapper {
 
         } catch (SQLException e) {
             throw new DatabaseException("Kunne ikke hente bruger", e);
+        }
+
+        return null;
+    }
+
+    //  __________________________________________________
+
+    public User getByEmail(String emailHashed) throws DatabaseException {
+        String sql = "SELECT * FROM users WHERE email_hashed = ?";
+
+        try (Connection conn = Database.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, emailHashed);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    return new User(
+                            rs.getInt("id"),
+                            rs.getString("username"),
+                            rs.getString("email_hashed"),
+                            rs.getString("password_hash"),
+                            rs.getInt("role_id"),
+                            rs.getTimestamp("created_at").toLocalDateTime()
+                    );
+                }
+            }
+
+        } catch (SQLException e) {
+            throw new DatabaseException("Kunne ikke hente bruger via email", e);
         }
 
         return null;
@@ -85,7 +115,7 @@ public class UserMapper {
             while (rs.next()) {
                 users.add(new User(
                         rs.getInt("id"),
-                        rs.getString("username_hashed"),
+                        rs.getString("username"),
                         rs.getString("email_hashed"),
                         rs.getString("password_hash"),
                         rs.getInt("role_id"),

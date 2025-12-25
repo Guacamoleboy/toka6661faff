@@ -29,6 +29,7 @@
 
     <!-- Script Load-->
     <script src="/js/notification.js" defer></script>
+    <script src="/js/auth/pathing-redirect.js" defer></script>
     <script src="/js/bubble-spawn.js" defer></script>
     <script src="/js/circle-movement.js" defer></script>
     <script src="/js/guacamoleboy-dropdown.js" defer></script>
@@ -52,14 +53,16 @@
                 <p>Udfyld felterne nedenfor for at registrere dig</p>
 
                 <form id="register-form" class="guac-form login-form">
-                    <input type="text" id="register-firstname" placeholder="Fornavn" required>
-                    <input type="text" id="register-lastname" placeholder="Efternavn" required>
-                    <input type="text" id="register-username" placeholder="Brugernavn" required>
-                    <input type="email" id="register-email" placeholder="Email" required>
-                    <input type="password" id="register-password" placeholder="Password" required>
-                    <input type="password" id="register-password-confirm" placeholder="Gentag password" required>
+                    <input type="text" id="register-firstname" name="register-firstname" placeholder="Fornavn" required>
+                    <input type="text" id="register-lastname" name="register-lastname" placeholder="Efternavn" required>
+                    <input type="text" id="register-username" name="register-username" placeholder="Brugernavn" required>
+                    <input type="email" id="register-email" name="register-email" placeholder="Email" required>
+                    <input type="password" id="register-password" name="register-password" placeholder="Password" required>
+                    <input type="password" id="register-password-confirm" name="register-password-confirm" placeholder="Gentag password" required>
+                    <input type="hidden" name="redirect" id="register-redirect">
                     <button type="submit" class="btn-login">Opret konto</button>
                 </form>
+
             </div>
         </div>
     </div>
