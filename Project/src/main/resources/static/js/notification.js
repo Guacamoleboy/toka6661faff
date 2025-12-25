@@ -25,18 +25,18 @@ function showNotification(message, color = "green") {
 
     switch(color.toLowerCase()) {
         case "green":
-            bgColor = rootStyles.getPropertyValue('--project-green');
+            bgColor = rootStyles.getPropertyValue('--consumr-green');
             break;
         case "orange":
         case "warning":
-            bgColor = rootStyles.getPropertyValue('--project-orange');
+            bgColor = rootStyles.getPropertyValue('--consumr-orange');
             break;
-        case "fog":
-            bgColor = rootStyles.getPropertyValue('--fog-blue');
+        case "consumr":
+            bgColor = rootStyles.getPropertyValue('--consumr-theme');
             break;
         case "red":
         default:
-            bgColor = rootStyles.getPropertyValue('--project-red');
+            bgColor = rootStyles.getPropertyValue('--consumr-red');
             break;
     }
 
@@ -45,9 +45,9 @@ function showNotification(message, color = "green") {
     notificationBox.innerText = message;
     notificationBox.style.backgroundColor = bgColor.trim();
 
-    if (color.toLowerCase() === "fog") {
-        notificationBox.style.color = rootStyles.getPropertyValue('--fog-white').trim();
-        notificationBox.style.border = `2px solid ${rootStyles.getPropertyValue('--fog-white').trim()}`;
+    if (color.toLowerCase() === "consumr") {
+        notificationBox.style.color = rootStyles.getPropertyValue('--consumr-white').trim();
+        notificationBox.style.border = `2px solid ${rootStyles.getPropertyValue('--consumr-white').trim()}`;
     }
 
     container.appendChild(notificationBox);
@@ -91,19 +91,22 @@ document.addEventListener("DOMContentLoaded", function() {
                 showNotification("Konto oprettet! Log venligst ind.", "green");
                 break;
             case "offerCreated":
-                showNotification("Tilbud oprettet.\nFølg status her på siden!", "fog");
+                showNotification("Tilbud oprettet.\nFølg status her på siden!", "consumr");
                 break;
             case "mailAfsendt":
-                showNotification("Mail afsendt!", "fog");
+                showNotification("Mail afsendt!", "consumr");
                 break;
             case "offerCreatedAdmin":
                 showNotification("Tilbud afsendt", "green");
                 break;
             case "loggedOut":
-                showNotification("Du er logged ud!", "fog");
+                showNotification("Du er logged ud!", "consumr");
+                break;
+            case "loggedIn":
+                showNotification("Du er logged ind!", "consumr");
                 break;
             case "userCreated":
-                showNotification("Bruger oprettet", "fog");
+                showNotification("Bruger oprettet", "consumr");
                 break;
         }
     }
@@ -121,10 +124,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 showNotification("Forkert adgangskode...", "orange");
                 break;
             case "idNotFound":
-                showNotification("ID findes ikke", "fog");
+                showNotification("ID findes ikke", "consumr");
                 break;
             case "NumberFormatException":
-                showNotification("Indtast venligst kun tal", "fog");
+                showNotification("Indtast venligst kun tal", "consumr");
                 break;
             case "wrongPassMatch":
                 showNotification("Adgangskoderne matcher ikke...", "red");

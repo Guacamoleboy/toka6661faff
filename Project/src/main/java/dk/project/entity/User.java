@@ -8,7 +8,7 @@ public class User {
 
     // Attributes
     private int id;
-    private String usernameHashed;
+    private String username;
     private String emailHashed;
     private String passwordHash;
     private int roleId;
@@ -21,9 +21,9 @@ public class User {
 
     // ___________________________________________________________
 
-    public User(int id, String usernameHashed, String emailHashed, String passwordHash, int roleId, LocalDateTime createdAt) {
+    public User(int id, String username, String emailHashed, String passwordHash, int roleId, LocalDateTime createdAt) {
         this.id = id;
-        this.usernameHashed = usernameHashed;
+        this.username = username;
         this.emailHashed = emailHashed;
         this.passwordHash = passwordHash;
         this.roleId = roleId;
@@ -32,8 +32,8 @@ public class User {
 
     // ___________________________________________________________
 
-    public User(String usernameHashed, String emailHashed, String passwordHash, int roleId) {
-        this.usernameHashed = usernameHashed;
+    public User(String username, String emailHashed, String passwordHash, int roleId) {
+        this.username = username;
         this.emailHashed = emailHashed;
         this.passwordHash = passwordHash;
         this.roleId = roleId;
@@ -53,14 +53,14 @@ public class User {
 
     // ___________________________________________________________
 
-    public String getUsernameHashed() {
-        return usernameHashed;
+    public String getUsername() {
+        return username;
     }
 
     // ___________________________________________________________
 
-    public void setUsernameHashed(String usernameHashed) {
-        this.usernameHashed = usernameHashed;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     // ___________________________________________________________

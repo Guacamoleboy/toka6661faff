@@ -1,12 +1,15 @@
 DROP TABLE IF EXISTS
-category,
-subcategory,
+product_badge,
+badge_definition,
+review_rating,
+rating_definition,
+review,
+users,
+role,
 product,
 product_info,
-role,
-users,
-food_review,
-electronics_review
+subcategory,
+category
 CASCADE;
 
 CREATE TABLE category (
@@ -45,38 +48,48 @@ name VARCHAR(50) UNIQUE NOT NULL                                                
 
 CREATE TABLE users (
 id SERIAL PRIMARY KEY,
-username_hashed TEXT UNIQUE NOT NULL,                                                   -- Hash (GDPR)
+username TEXT UNIQUE NOT NULL,                                                          -- Normal
 email_hashed TEXT UNIQUE NOT NULL,                                                      -- Hash (GDPR)
 password_hash TEXT NOT NULL,                                                            -- Hash (GDPR)
 role_id INT REFERENCES role(id),                                                        -- Access
 created_at TIMESTAMP DEFAULT now()
 );
 
-CREATE TABLE food_review (
+CREATE TABLE review (
 id SERIAL PRIMARY KEY,
-product_barcode TEXT REFERENCES product(barcode) ON DELETE CASCADE,                     -- Individual product
-user_id INT REFERENCES users(id) ON DELETE CASCADE,
-rating INT NOT NULL CHECK (rating BETWEEN 1 AND 5),                                     -- 1 -> 5
-price_rating INT NOT NULL CHECK (price_rating BETWEEN 1 AND 5),                         -- 1 -> 5
-flavor_rating INT NOT NULL CHECK (flavor_rating BETWEEN 1 AND 5),                       -- 1 -> 5
-would_buy_again BOOLEAN NOT NULL,                                                       -- Must be added
-improvements TEXT,                                                                      -- Not a must
-comment TEXT NOT NULL,                                                                  -- Must be entered
-review_date TIMESTAMP DEFAULT now(),
-UNIQUE(user_id, product_barcode)                                                        -- Limits per customer
+product_barcode TEXT NOT NULL REFERENCES product(barcode) ON DELETE CASCADE,            -- On Product
+user_id INT NOT NULL REFERENCES users(id) ON DELETE CASCADE,                            -- User ID
+final_comment TEXT NOT NULL,                                                            -- Display comment
+created_at TIMESTAMP DEFAULT now(),
+UNIQUE (user_id, product_barcode)
 );
 
-CREATE TABLE electronics_review (
+CREATE TABLE rating_definition (
 id SERIAL PRIMARY KEY,
-product_barcode TEXT REFERENCES product(barcode) ON DELETE CASCADE,                     -- Individual product
-user_id INT REFERENCES users(id) ON DELETE CASCADE,
-rating INT NOT NULL CHECK (rating BETWEEN 1 AND 5),
-durability_rating INT CHECK (durability_rating BETWEEN 1 AND 5),
-ease_of_use_rating INT CHECK (ease_of_use_rating BETWEEN 1 AND 5),
-design_rating INT CHECK (design_rating BETWEEN 1 AND 5),
-would_recommend BOOLEAN NOT NULL,
-improvements TEXT,
-comment TEXT NOT NULL,
-review_date TIMESTAMP DEFAULT now(),
-UNIQUE(user_id, product_barcode)
+subcategory_id INT NOT NULL REFERENCES subcategory(id) ON DELETE CASCADE,               -- Snacks, Høretelefoner mm
+label TEXT NOT NULL,                                                                    -- Pris, komfortabilitet osv
+rating_type TEXT NOT NULL CHECK (rating_type = 'SCALE_1_5'),                            -- 1.0 -> 5.0
+UNIQUE (subcategory_id, label)
+);
+
+CREATE TABLE review_rating (
+id SERIAL PRIMARY KEY,
+review_id INT NOT NULL REFERENCES review(id) ON DELETE CASCADE,                         -- Review for product by user
+rating_definition_id INT NOT NULL REFERENCES rating_definition(id) ON DELETE CASCADE,   -- Type of review (Snacks, Elektronik mm)
+value DOUBLE PRECISION NOT NULL CHECK (value BETWEEN 1.0 AND 5.0),                      -- 1.0 -> 5.0
+comment TEXT,                                                                           -- Free comment
+UNIQUE (review_id, rating_definition_id)
+);
+
+CREATE TABLE badge_definition (
+id SERIAL PRIMARY KEY,
+code TEXT NOT NULL UNIQUE,                                                              -- div display value
+label TEXT NOT NULL                                                                     -- Badge label (text)
+);
+
+CREATE TABLE product_badge (
+id SERIAL PRIMARY KEY,
+product_barcode TEXT NOT NULL REFERENCES product(barcode) ON DELETE CASCADE,            -- Product
+badge_id INT NOT NULL REFERENCES badge_definition(id) ON DELETE CASCADE,                -- Badge
+UNIQUE(product_barcode, badge_id)
 );
