@@ -10,7 +10,7 @@
     <meta name="author" content="Guacamoleboy"> <!-- Author of Website -->
 
     <!-- Visuals -->
-    <title>Consumr - PRODUKT NAVN</title>
+    <title th:text="'Consumr - ' + ${product.title}">Consumr</title>
 
     <!-- Icon -->
     <link rel="icon" href="/images/logo/logo-256-white.png" type="image/x-icon">
@@ -78,7 +78,7 @@
             <!-- Product Specific Information -->
             <p th:text="${categoryName} + ' / ' + ${subcategoryName}"></p>
             <h2 class="product-title" th:text="${product.title}">Produkt Navn</h2>
-            <p class="description">Her er noget tekst om produktet min ven. Kan du lide den. Kan du ikke? Aner ikke hvad jeg skal skrive her endnu. Thoughts?</p>
+            <p class="description" th:text="${product.productInfo.description}">Produktbeskrivelse her</p>
             <!-- Product Specific Information -->
 
             <!-- Badges -->
@@ -90,48 +90,21 @@
             <!-- Badges -->
 
             <!-- Rating -->
-            <div class="ratings">
-                <div class="rating-item">
+            <div class="ratings" th:if="${ratings != null}">
+                <div class="rating-item" th:each="r : ${ratings}">
                     <div class="rating-header">
-                        <span class="rating-label">Smag</span>
-                        <span class="rating-value">2.3 / 5</span>
+                        <span class="rating-label" th:text="${r.label}">Rating Label</span>
+                        <span class="rating-value" th:text="${r.average} + ' / 5'">0 / 5</span>
                     </div>
                     <div class="rating-bar">
-                        <div class="rating-fill" value="2.3"></div>
-                    </div>
-                </div>
-                <div class="rating-item">
-                    <div class="rating-header">
-                        <span class="rating-label">Ville købe igen</span>
-                        <span class="rating-value">4.7 / 5</span>
-                    </div>
-                    <div class="rating-bar">
-                        <div class="rating-fill" value="4.7"></div>
-                    </div>
-                </div>
-                <div class="rating-item">
-                    <div class="rating-header">
-                        <span class="rating-label">Pris</span>
-                        <span class="rating-value">1.7 / 5</span>
-                    </div>
-                    <div class="rating-bar">
-                        <div class="rating-fill" value="1.7"></div>
-                    </div>
-                </div>
-                <div class="rating-item">
-                    <div class="rating-header">
-                        <span class="rating-label">Emballage</span>
-                        <span class="rating-value">3.4 / 5</span>
-                    </div>
-                    <div class="rating-bar">
-                        <div class="rating-fill" value="3.4"></div>
+                        <div class="rating-fill" th:attr="value=${r.average}"></div>
                     </div>
                 </div>
             </div>
             <!-- Rating -->
 
             <!-- Total Reviews -->
-            <p class="total-reviews"><i class="fa fa-user-o"></i> 37 anmeldelser</p>
+            <p class="total-reviews"><i class="fa fa-user-o"></i> <span th:text="${reviewCount}">0</span> anmeldelser</p>
             <div class="button-wrapper-product">
                 <button class="btn-review">Skriv din anmeldelse</button>
             </div>
@@ -159,76 +132,17 @@
                 <div class="comments-list">
 
                     <!-- Comment -->
-                    <div class="comment">
+                    <div class="comment" th:each="comment : ${comments}">
                         <div class="comment-header">
-                            <span class="comment-author">Mette Larsen</span>
-                            <span class="comment-date">25/12-2025</span>
+                            <span class="comment-author" th:text="${comment.author}">Author Name</span>
+                            <span class="comment-date" th:text="${#temporals.format(comment.createdAt, 'dd/MM-yyyy')}">26/12-2025</span>
                         </div>
-                        <div class="comment-body">
-                            Virkelig lækre chips! Konsistensen var perfekt, og smagen passede lige til min aftenhygge.
-                        </div>
+                        <div class="comment-body" th:text="${comment.text}">Comment text</div>
                         <div class="comment-rating">
                             <span class="comment-total-intro">Samlet vurdering</span>
-                            <span class="comment-total-rating">4.7 / 5.0</span>
+                            <span class="comment-total-rating" th:text="${comment.rating} + ' / 5.0'">4.7 / 5.0</span>
                             <div class="rating-bar">
-                                <div class="rating-fill" value="4.7"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Comment -->
-
-                    <!-- Comment -->
-                    <div class="comment">
-                        <div class="comment-header">
-                            <span class="comment-author">Andreas Karse</span>
-                            <span class="comment-date">25/12-2025</span>
-                        </div>
-                        <div class="comment-body">
-                            Virkelig lækre chips! Konsistensen var perfekt, og smagen passede lige til min aftenhygge.
-                        </div>
-                        <div class="comment-rating">
-                            <span class="comment-total-intro">Samlet vurdering</span>
-                            <span class="comment-total-rating">3.2 / 5.0</span>
-                            <div class="rating-bar">
-                                <div class="rating-fill" value="3.2"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Comment -->
-
-                    <!-- Comment -->
-                    <div class="comment">
-                        <div class="comment-header">
-                            <span class="comment-author">Jens Jensen</span>
-                            <span class="comment-date">25/12-2025</span>
-                        </div>
-                        <div class="comment-body">
-                            Virkelig lækre chips! Konsistensen var perfekt, og smagen passede lige til min aftenhygge.
-                        </div>
-                        <div class="comment-rating">
-                            <span class="comment-total-intro">Samlet vurdering</span>
-                            <span class="comment-total-rating">1.9 / 5.0</span>
-                            <div class="rating-bar">
-                                <div class="rating-fill" value="1.9"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Comment -->
-
-                    <!-- Comment -->
-                    <div class="comment">
-                        <div class="comment-header">
-                            <span class="comment-author">Kim Karsten</span>
-                            <span class="comment-date">25/12-2025</span>
-                        </div>
-                        <div class="comment-body">
-                            Virkelig lækre chips! Konsistensen var perfekt, og smagen passede lige til min aftenhygge.
-                        </div>
-                        <div class="comment-rating">
-                            <span class="comment-total-intro">Samlet vurdering</span>
-                            <span class="comment-total-rating">2.3 / 5.0</span>
-                            <div class="rating-bar">
-                                <div class="rating-fill" value="2.3"></div>
+                                <div class="rating-fill" th:attr="value=${comment.rating}"></div>
                             </div>
                         </div>
                     </div>
@@ -238,7 +152,11 @@
 
                 <!-- Load More Button -->
                 <div class="load-more-wrapper">
-                    <button class="btn-load-more">Load flere</button>
+                    <button class="btn-load-more active">1</button>
+                    <button class="btn-load-more">2</button>
+                    <button class="btn-load-more">3</button>
+                    <button class="btn-load-more">4</button>
+                    <button class="btn-load-more">5</button>
                 </div>
 
             </div>

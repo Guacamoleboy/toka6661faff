@@ -957,6 +957,7 @@ body::-webkit-scrollbar { /* All other browsers */
     display: flex;
     justify-content: center;
     margin-top: 1rem;
+    gap: 0.5rem;
 }
 
 .btn-load-more {
@@ -975,6 +976,12 @@ body::-webkit-scrollbar { /* All other browsers */
 .btn-load-more:hover {
     opacity: 0.85;
     transform: translateY(1px);
+}
+
+.btn-load-more.active {
+    background-color: #426d57;
+    color: #FFF;
+    border: 2px solid #e5e5e5;
 }
 
 .comment-rating .rating-bar {

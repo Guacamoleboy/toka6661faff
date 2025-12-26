@@ -48,7 +48,9 @@ name VARCHAR(50) UNIQUE NOT NULL                                                
 
 CREATE TABLE users (
 id SERIAL PRIMARY KEY,
-username TEXT UNIQUE NOT NULL,                                                          -- Normal
+first_name TEXT NOT NULL,                                                               -- Fornavn
+last_name TEXT NOT NULL,                                                                -- Efternavn
+username TEXT UNIQUE NOT NULL,                                                          -- Brugernavn
 email_hashed TEXT UNIQUE NOT NULL,                                                      -- Hash (GDPR)
 password_hash TEXT NOT NULL,                                                            -- Hash (GDPR)
 role_id INT REFERENCES role(id),                                                        -- Access
