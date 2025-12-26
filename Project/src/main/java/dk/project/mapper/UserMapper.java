@@ -17,17 +17,19 @@ public class UserMapper {
 
     public void create(User user) throws DatabaseException {
         String sql = """
-            INSERT INTO users (username, email_hashed, password_hash, role_id)
-            VALUES (?, ?, ?, ?)
-            """;
+        INSERT INTO users (first_name, last_name, username, email_hashed, password_hash, role_id)
+        VALUES (?, ?, ?, ?, ?, ?)
+        """;
 
         try (Connection conn = Database.getConnection();
             PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
-            stmt.setString(1, user.getUsername());
-            stmt.setString(2, user.getEmailHashed());
-            stmt.setString(3, user.getPasswordHash());
-            stmt.setInt(4, user.getRoleId());
+            stmt.setString(1, user.getFirstName());
+            stmt.setString(2, user.getLastName());
+            stmt.setString(3, user.getUsername());
+            stmt.setString(4, user.getEmailHashed());
+            stmt.setString(5, user.getPasswordHash());
+            stmt.setInt(6, user.getRoleId());
             stmt.executeUpdate();
 
             try (ResultSet keys = stmt.getGeneratedKeys()) {
@@ -55,6 +57,8 @@ public class UserMapper {
                 if (rs.next()) {
                     return new User(
                             rs.getInt("id"),
+                            rs.getString("first_name"),
+                            rs.getString("last_name"),
                             rs.getString("username"),
                             rs.getString("email_hashed"),
                             rs.getString("password_hash"),
@@ -86,6 +90,8 @@ public class UserMapper {
                 if (rs.next()) {
                     return new User(
                             rs.getInt("id"),
+                            rs.getString("first_name"),
+                            rs.getString("last_name"),
                             rs.getString("username"),
                             rs.getString("email_hashed"),
                             rs.getString("password_hash"),
@@ -116,6 +122,8 @@ public class UserMapper {
             while (rs.next()) {
                 users.add(new User(
                         rs.getInt("id"),
+                        rs.getString("first_name"),
+                        rs.getString("last_name"),
                         rs.getString("username"),
                         rs.getString("email_hashed"),
                         rs.getString("password_hash"),

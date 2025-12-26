@@ -8,6 +8,8 @@ public class User {
 
     // Attributes
     private int id;
+    private String firstName;
+    private String lastName;
     private String username;
     private String emailHashed;
     private String passwordHash;
@@ -22,8 +24,10 @@ public class User {
 
     // ___________________________________________________________
 
-    public User(int id, String username, String emailHashed, String passwordHash, int roleId, LocalDateTime createdAt, int xp) {
+    public User(int id, String firstName, String lastName, String username, String emailHashed, String passwordHash, int roleId, LocalDateTime createdAt, int xp) {
         this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.username = username;
         this.emailHashed = emailHashed;
         this.passwordHash = passwordHash;
@@ -114,6 +118,30 @@ public class User {
 
     public void setXp(int xp) {
         this.xp = xp;
+    }
+
+    // ___________________________________________________________
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    // ___________________________________________________________
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    // ___________________________________________________________
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    // ___________________________________________________________
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
 }

@@ -2,6 +2,8 @@
 package dk.project.controller.product;
 
 // Imports
+import dk.project.dto.CommentDTO;
+import dk.project.dto.UIDTO;
 import dk.project.entity.BadgeDefinition;
 import dk.project.entity.Product;
 import dk.project.entity.ProductBadge;
@@ -48,41 +50,31 @@ public class ProductController {
 
         app.get("/product", ctx -> {
 
-            // Session + Validation
-            Product product = ctx.sessionAttribute("currentProduct");
-            if (product == null) {
+            Product sessionProduct = ctx.sessionAttribute("currentProduct");
+
+            if (sessionProduct == null) {
                 ctx.redirect("/?error=noProductSelected");
                 return;
             }
 
-            // Setup
-            CategoryMapper categoryMapper = new CategoryMapper();
-            SubCategoryMapper subcategoryMapper = new SubCategoryMapper();
-            ProductBadgeMapper pbMapper = new ProductBadgeMapper();
-            BadgeDefinitionMapper bdMapper = new BadgeDefinitionMapper();
+            UIMapper uiMapper = new UIMapper();
+            UIDTO ui = uiMapper.getProductPage(sessionProduct.getBarcode());
 
-            // Badges
-            List<ProductBadge> productBadges = pbMapper.getByProductBarcode(product.getBarcode());
-            List<BadgeDefinition> badges = new ArrayList<>();
-            for (ProductBadge pb : productBadges) {
-                BadgeDefinition bd = bdMapper.getById(pb.getBadgeId());
-                if (bd != null) {
-                    badges.add(bd);
-                }
+            if (ui == null) {
+                ctx.redirect("/?error=productNotFound");
+                return;
             }
 
-            // Get category information
-            String categoryName = categoryMapper.getById(product.getCategoryId()).getName();
-            String subcategoryName = subcategoryMapper.getById(product.getSubcategoryId()).getName();
-
-            Map<String, Object> model = new HashMap<>();
-            model.put("product", product);
-            model.put("badges", badges);
-            model.put("categoryName", categoryName);
-            model.put("subcategoryName", subcategoryName);
-
-            ctx.html(ThymeleafSetup.render("product.html", model));
-
+            ctx.html(ThymeleafSetup.render("product.html", Map.of(
+                    "product", ui.getProduct(),
+                    "categoryName", ui.getCategoryName(),
+                    "subcategoryName", ui.getSubcategoryName(),
+                    "badges", ui.getBadges(),
+                    "ratings", ui.getRatings(),
+                    "totalRating", ui.getTotalRating(),
+                    "reviewCount", ui.getReviewCount(),
+                    "comments", ui.getComments()
+            )));
         });
 
     }

@@ -41,8 +41,9 @@ INSERT INTO role (name) VALUES
 ('API ACCESS'),
 ('ADMIN');
 
-INSERT INTO users (username, email_hashed, password_hash, role_id, xp) VALUES
+INSERT INTO users (first_name, last_name, username, email_hashed, password_hash, role_id, xp) VALUES
 (
+'Jonas', 'Larsen',
 'jonaslarsen_',
 encode(digest('test@travlr.dk', 'sha256'), 'hex'),
 crypt('password', gen_salt('bf')),
@@ -50,6 +51,7 @@ crypt('password', gen_salt('bf')),
 250
 ),
 (
+'Customer', 'User',
 'customer',
 encode(digest('customer@email.com', 'sha256'), 'hex'),
 crypt('customer', gen_salt('bf')),
@@ -74,15 +76,24 @@ INSERT INTO badge_definition (code, label) VALUES
 INSERT INTO rating_definition (subcategory_id, label, rating_type) VALUES
 (7, 'Smag', 'SCALE_1_5'),
 (7, 'Energi boost', 'SCALE_1_5'),
+(7, 'Ville købe igen', 'SCALE_1_5'),
 (7, 'Pris', 'SCALE_1_5');
 
 INSERT INTO review (product_barcode, user_id, final_comment) VALUES
-('5060337502900', 1, 'Super lækker energi, perfekt til træning');
+('5060337502900', 1, 'Super lækker energi, perfekt til træning! Køber normalt 6 rammer hver dag, og flækker dem alle på én gang. Er det normalt? Ingen idé brors.'),
+('5060337502900', 2, 'Shit hvor jeg elsker den her. Den helt originale monster energy fra min broder Monster. Køb køb køb!');
 
 INSERT INTO review_rating (review_id, rating_definition_id, value, comment) VALUES
 (1, 1, 4.5, 'Smagen er klassisk Monster'),
 (1, 2, 4.8, 'Giver et hurtigt energi boost'),
-(1, 3, 3.5, 'En smule dyr men det er okay');
+(1, 3, 5.0, 'Noget her'),
+(1, 4, 4.1, 'En smule dyr men det er okay');
+
+INSERT INTO review_rating (review_id, rating_definition_id, value, comment) VALUES
+(2, 1, 2.1, 'Fantastisk smag!'),
+(2, 2, 2.7, 'Giver et godt energi-boost'),
+(2, 3, 1.5, 'Meget tilfredsstillende'),
+(2, 4, 3.2, 'Pris/ydelse okay');
 
 INSERT INTO product_badge (product_barcode, badge_id) VALUES
 ('5060337502900', 8);
