@@ -55,13 +55,18 @@
 
     <!-- Left -->
     <div class="product-review-left">
-        <img src="/images/products/5060337502900.png" class="product-review-main">
 
-        <div class="more-photos-preview">
-            <img src="/images/products/5060337502900.png" class="more-photos-img">
-            <img src="/images/products/5060337502900.png" class="more-photos-img">
-            <img src="/images/products/5060337502900.png" class="more-photos-img">
-        </div>
+        <!-- Product Picture -->
+        <img th:src="@{${product.imagePath}}" class="product-review-main">
+
+        <!-- Mini Photos -->
+<!--        <div class="more-photos-preview">-->
+<!--            <img src="/images/products/5060337502900_1.png" class="more-photos-img">-->
+<!--            <img src="/images/products/5060337502900_2.png" class="more-photos-img">-->
+<!--            <img src="/images/products/5060337502900_3.png" class="more-photos-img">-->
+<!--        </div>-->
+        <!-- Mini Photos -->
+
     </div>
     <!-- Left -->
 
@@ -71,13 +76,17 @@
         <div class="product-info">
 
             <!-- Product Specific Information -->
-            <p class="category">Drikkevarer / Energidrik</p>
-            <h2 class="product-title">Monster Energy Original</h2>
+            <p th:text="${categoryName} + ' / ' + ${subcategoryName}"></p>
+            <h2 class="product-title" th:text="${product.title}">Produkt Navn</h2>
             <p class="description">Her er noget tekst om produktet min ven. Kan du lide den. Kan du ikke? Aner ikke hvad jeg skal skrive her endnu. Thoughts?</p>
             <!-- Product Specific Information -->
 
             <!-- Badges -->
-            <p class="badge badge-justAdded">Lige tilføjet</p>
+            <div class="badges" th:if="${badges != null and #lists.size(badges) > 0}">
+                <p th:each="badge : ${badges}"
+                   th:text="${badge.label}"
+                   th:class="'badge badge-' + ${badge.code}"></p>
+            </div>
             <!-- Badges -->
 
             <!-- Rating -->
@@ -141,7 +150,8 @@
                     <select id="sort" name="sort">
                         <option value="newest" selected>Nyeste</option>
                         <option value="oldest">Ældste</option>
-                        <option value="oldest">Rating</option>
+                        <option value="oldest">Lavest</option>
+                        <option value="oldest">Højest</option>
                     </select>
                 </div>
 
@@ -151,7 +161,7 @@
                     <!-- Comment -->
                     <div class="comment">
                         <div class="comment-header">
-                            <span class="comment-author">Mette L.</span>
+                            <span class="comment-author">Mette Larsen</span>
                             <span class="comment-date">25/12-2025</span>
                         </div>
                         <div class="comment-body">
@@ -170,7 +180,7 @@
                     <!-- Comment -->
                     <div class="comment">
                         <div class="comment-header">
-                            <span class="comment-author">Mette L.</span>
+                            <span class="comment-author">Andreas Karse</span>
                             <span class="comment-date">25/12-2025</span>
                         </div>
                         <div class="comment-body">
@@ -189,7 +199,7 @@
                     <!-- Comment -->
                     <div class="comment">
                         <div class="comment-header">
-                            <span class="comment-author">Mette L.</span>
+                            <span class="comment-author">Jens Jensen</span>
                             <span class="comment-date">25/12-2025</span>
                         </div>
                         <div class="comment-body">
@@ -208,7 +218,7 @@
                     <!-- Comment -->
                     <div class="comment">
                         <div class="comment-header">
-                            <span class="comment-author">Mette L.</span>
+                            <span class="comment-author">Kim Karsten</span>
                             <span class="comment-date">25/12-2025</span>
                         </div>
                         <div class="comment-body">

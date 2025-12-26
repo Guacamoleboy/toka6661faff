@@ -17,8 +17,8 @@ public class UserMapper {
 
     public void create(User user) throws DatabaseException {
         String sql = """
-            INSERT INTO users (username, email_hashed, password_hash, role_id, created_at)
-            VALUES (?, ?, ?, ?, ?)
+            INSERT INTO users (username, email_hashed, password_hash, role_id)
+            VALUES (?, ?, ?, ?)
             """;
 
         try (Connection conn = Database.getConnection();
@@ -28,7 +28,6 @@ public class UserMapper {
             stmt.setString(2, user.getEmailHashed());
             stmt.setString(3, user.getPasswordHash());
             stmt.setInt(4, user.getRoleId());
-            stmt.setTimestamp(5, Timestamp.valueOf(user.getCreatedAt()));
             stmt.executeUpdate();
 
             try (ResultSet keys = stmt.getGeneratedKeys()) {
@@ -60,7 +59,8 @@ public class UserMapper {
                             rs.getString("email_hashed"),
                             rs.getString("password_hash"),
                             rs.getInt("role_id"),
-                            rs.getTimestamp("created_at").toLocalDateTime()
+                            rs.getTimestamp("created_at").toLocalDateTime(),
+                            rs.getInt("xp")
                     );
                 }
             }
@@ -90,7 +90,8 @@ public class UserMapper {
                             rs.getString("email_hashed"),
                             rs.getString("password_hash"),
                             rs.getInt("role_id"),
-                            rs.getTimestamp("created_at").toLocalDateTime()
+                            rs.getTimestamp("created_at").toLocalDateTime(),
+                            rs.getInt("xp")
                     );
                 }
             }
@@ -119,7 +120,8 @@ public class UserMapper {
                         rs.getString("email_hashed"),
                         rs.getString("password_hash"),
                         rs.getInt("role_id"),
-                        rs.getTimestamp("created_at").toLocalDateTime()
+                        rs.getTimestamp("created_at").toLocalDateTime(),
+                        rs.getInt("xp")
                 ));
             }
 

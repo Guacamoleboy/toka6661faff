@@ -9,7 +9,7 @@ public class Product {
     // Attributes
     private String barcode;
     private String title;
-    private int productInfoId;
+    private ProductInfo productInfo;
     private String imagePath;
     private int categoryId;
     private int subcategoryId;
@@ -22,10 +22,10 @@ public class Product {
 
     // ___________________________________________________________
 
-    public Product(String barcode, String title, int productInfoId, int categoryId, LocalDateTime createdAt, String imagePath, int subcategoryId) {
+    public Product(String barcode, String title, ProductInfo productInfo, int categoryId, LocalDateTime createdAt, String imagePath, int subcategoryId) {
         this.barcode = barcode;
         this.title = title;
-        this.productInfoId = productInfoId;
+        this.productInfo = productInfo;
         this.categoryId = categoryId;
         this.createdAt = createdAt;
         this.imagePath = imagePath;
@@ -58,14 +58,14 @@ public class Product {
 
     // ___________________________________________________________
 
-    public int getProductInfoId() {
-        return productInfoId;
+    public ProductInfo getProductInfo() {
+        return productInfo;
     }
 
     // ___________________________________________________________
 
-    public void setProductInfoId(int productInfoId) {
-        this.productInfoId = productInfoId;
+    public void setProductInfo(ProductInfo productInfo) {
+        this.productInfo = productInfo;
     }
 
     // ___________________________________________________________

@@ -13,6 +13,7 @@ public class User {
     private String passwordHash;
     private int roleId;
     private LocalDateTime createdAt;
+    private int xp;
 
     // ___________________________________________________________
 
@@ -21,22 +22,14 @@ public class User {
 
     // ___________________________________________________________
 
-    public User(int id, String username, String emailHashed, String passwordHash, int roleId, LocalDateTime createdAt) {
+    public User(int id, String username, String emailHashed, String passwordHash, int roleId, LocalDateTime createdAt, int xp) {
         this.id = id;
         this.username = username;
         this.emailHashed = emailHashed;
         this.passwordHash = passwordHash;
         this.roleId = roleId;
         this.createdAt = createdAt;
-    }
-
-    // ___________________________________________________________
-
-    public User(String username, String emailHashed, String passwordHash, int roleId) {
-        this.username = username;
-        this.emailHashed = emailHashed;
-        this.passwordHash = passwordHash;
-        this.roleId = roleId;
+        this.xp = xp;
     }
 
     // ___________________________________________________________
@@ -109,6 +102,18 @@ public class User {
 
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
+    }
+
+    // ___________________________________________________________
+
+    public int getXp() {
+        return xp;
+    }
+
+    // ___________________________________________________________
+
+    public void setXp(int xp) {
+        this.xp = xp;
     }
 
 }

@@ -37,24 +37,30 @@ public class Database {
 
     private static synchronized void startPool() {
 
-        // Important to avoid bugs with Unit Tests
-        close();
+        if (hikariDataSource != null && !hikariDataSource.isClosed()) {
+            return;
+        }
 
-        // Initial Config
-        HikariConfig hikariConfig = new HikariConfig();
-        hikariConfig.setJdbcUrl(String.format(URL_TEMPLATE, host, port, databaseName));
-        hikariConfig.setUsername(user);
-        hikariConfig.setPassword(password);
+        HikariConfig config = new HikariConfig();
+        config.setJdbcUrl(String.format(URL_TEMPLATE, host, port, databaseName));
+        config.setUsername(user);
+        config.setPassword(password);
 
-        // Pool Settings
-        hikariConfig.setMaximumPoolSize(10); // Pool limits | http-requests
-        hikariConfig.setMinimumIdle(2); // Minimum active connections available for speed
-        hikariConfig.setIdleTimeout(30000); // 30sec
-        hikariConfig.setConnectionTimeout(10000); // 10sec delay -> Timeout
-        hikariConfig.setPoolName("ConsumrPool"); // Name for debugging
+        // Pool settings
+        config.setMaximumPoolSize(10);
+        config.setMinimumIdle(2);
+        config.setIdleTimeout(30000); // 30 sec
+        config.setConnectionTimeout(10000); // 10 sec
+        config.setValidationTimeout(5000); // Max
+        config.setPoolName("ConsumrPool");
 
-        // If all worked out
-        hikariDataSource = new HikariDataSource(hikariConfig);
+        // Test connection
+        config.setConnectionTestQuery("SELECT 1");
+
+        // Idle
+        config.setKeepaliveTime(15000);
+
+        hikariDataSource = new HikariDataSource(config);
 
     }
 

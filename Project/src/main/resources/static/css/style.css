@@ -428,6 +428,7 @@ body::-webkit-scrollbar { /* All other browsers */
             background 0.25s ease,
             box-shadow 0.25s ease,
             transform 0.2s ease;
+    box-shadow: 0 4px 2px rgba(0,0,0,0.25);
 }
 
 .consumr-logind-btn {
@@ -439,23 +440,18 @@ body::-webkit-scrollbar { /* All other browsers */
 
 .consumr-logind-btn:hover {
     background: rgba(255,255,255,0.14);
-    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
-    transform: translateY(-1px);
+    box-shadow: 0 2px 2px rgba(0,0,0,0.25);
+    transform: translateY(2px);
 }
 
 .consumr-opret-btn {
     background: #579575;
     color: var(--consumr-white);
-    box-shadow:
-            0 4px 16px rgba(0,0,0,0.25),
-            0 0 0 1px rgba(255,255,255,0.08);
 }
 
 .consumr-opret-btn:hover {
-    transform: translateY(-1px);
-    box-shadow:
-            0 6px 20px rgba(0,0,0,0.35),
-            0 0 12px rgba(255,255,255,0.15);
+    transform: translateY(2px);
+    box-shadow: 0 2px 2px rgba(0,0,0,0.25);
 }
 
 /* ################################################################### */
@@ -665,8 +661,8 @@ body::-webkit-scrollbar { /* All other browsers */
 
 .btn-review {
     margin-bottom: 1rem !important;
-    background-color: #527f6d;
-    color: #fff;
+    background-color: #cfcfcf;
+    color: #474747;
     box-shadow: 0 4px 2px rgba(0,0,0,0.3);
 }
 
@@ -733,13 +729,13 @@ body::-webkit-scrollbar { /* All other browsers */
     color: var(--consumr-white);
     padding: 0.35rem 0.75rem;
     border-radius: 0.5rem;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    box-shadow: 0 3px 2px rgba(0,0,0,0.4);
     transition: all 0.2s ease;
 }
 
 .product-info .total-reviews:hover {
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 2px rgba(0,0,0,0.4);
 }
 
 .total-reviews i {
@@ -761,7 +757,7 @@ body::-webkit-scrollbar { /* All other browsers */
     padding: 1rem;
     background: rgba(255,255,255,0.05);
     border-radius: 0.75rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 2px rgba(77, 96, 89, 0.4);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -880,6 +876,16 @@ body::-webkit-scrollbar { /* All other browsers */
     outline: none;
 }
 
+/* 2 ROW
+.comments-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+*/
+
+/* ORIGINAL 1 ROW
+*/
 .comments-list {
     display: flex;
     flex-direction: column;
@@ -889,14 +895,20 @@ body::-webkit-scrollbar { /* All other browsers */
 }
 
 .comment {
-    background-color: #e3e3e3;
-    border: 2px solid #426d57;
+    background-color: #739182;
+    border: 2px solid #c5c5c5;
     border-radius: 0.5rem;
     padding: 1.25rem 1.5rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 2px rgba(0,0,0,0.5);
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
+    transition: all 0.2s ease;
+}
+
+.comment:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 2px rgba(0,0,0,0.5);
 }
 
 .comment-header {
@@ -904,32 +916,32 @@ body::-webkit-scrollbar { /* All other browsers */
     justify-content: space-between;
     align-items: center;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: #333;
 }
 
 .comment-author {
-    color: #333;
+    color: #fff;
 }
 
 .comment-date {
     font-weight: 400;
-    font-size: 0.85rem;
-    color: #555;
+    font-size: 1rem;
+    color: #fff;
 }
 
 .comment-body {
-    max-width: 70ch !important;
+
     font-size: 0.9rem;
     line-height: 1.6;
-    color: #333;
+    color: #fff;
 }
 
 .comment-rating {
-    border-left: 4px solid #426d57;
+    border-left: 4px solid #c7c7c7;
     border-radius: 0.25rem;
     padding: 1.25rem 1.25rem;
-    background-color: #d3d3d3;
+    background-color: #617f70;
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
@@ -938,7 +950,7 @@ body::-webkit-scrollbar { /* All other browsers */
 .comment-total-intro, .comment-total-rating {
     font-size: 0.8rem;
     font-weight: 600 !important;
-    color: #333;
+    color: #fff;
 }
 
 .load-more-wrapper {
