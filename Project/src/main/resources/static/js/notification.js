@@ -117,6 +117,12 @@ document.addEventListener("DOMContentLoaded", function() {
             case "wrongInfo":
                 showNotification("Forkert brugernavn eller adgangskode...", "red");
                 break;
+            case "chooseProduct":
+                showNotification("Vælg et produkt", "red");
+                break;
+            case "noProduct":
+                showNotification("Intet produkt fundet", "red");
+                break;
             case "pdfError":
                 showNotification("Kan ikke oprette .pdf - kontakt en developer", "red");
                 break;

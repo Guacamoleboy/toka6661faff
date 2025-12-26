@@ -39,6 +39,7 @@
     <script src="/js/circle-movement.js" defer></script>
     <script src="/js/search/input-dynamic.js" defer></script>
     <script src="/js/index/dynamic-text.js" defer></script>
+    <script src="/js/product/product-search.js" defer></script>
 
     <!-- Modules -->
     <script type="module" src="/js/components/header.js" defer></script>
@@ -71,7 +72,7 @@
         <div class="input-group">
 
             <!-- User Input (Dynamic) -->
-            <input type="text" id="consumr-search-index" placeholder="Søg efter produkt...">
+            <input type="text" id="consumr-search-index" name="barcode" placeholder="Søg efter produkt...">
 
             <!-- Scanner Button -->
             <button class="btn-scan" id="scan-btn">
@@ -90,6 +91,7 @@
 
             <!-- Search Button -->
             <button class="btn-send">Søg <i class="fa fa-search"></i></button>
+
         </div>
 
 

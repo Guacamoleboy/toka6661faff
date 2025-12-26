@@ -33,7 +33,7 @@ INSERT INTO product_info (name, description) VALUES
 ('Monster Energy Green', 'Energy drink with classic Monster flavor');
 
 INSERT INTO product (barcode, product_info_id, category_id, subcategory_id, image_path) VALUES
-('5060337502900', 1, 3, 7, '/images/products/5060337502900.png');
+('5060337502900', 1, 3, 7, 'images/products/5060337502900.png');
 
 INSERT INTO role (name) VALUES
 ('USER'),
@@ -41,20 +41,21 @@ INSERT INTO role (name) VALUES
 ('API ACCESS'),
 ('ADMIN');
 
-INSERT INTO users (username, email_hashed, password_hash, role_id) VALUES
+INSERT INTO users (username, email_hashed, password_hash, role_id, xp) VALUES
 (
 'jonaslarsen_',
 encode(digest('test@travlr.dk', 'sha256'), 'hex'),
 crypt('password', gen_salt('bf')),
-4
+4,
+250
 ),
 (
 'customer',
 encode(digest('customer@email.com', 'sha256'), 'hex'),
 crypt('customer', gen_salt('bf')),
-1
+1,
+0
 );
-
 
 INSERT INTO badge_definition (code, label) VALUES
 ('popular', 'Populær'),

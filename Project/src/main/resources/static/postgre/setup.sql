@@ -37,7 +37,7 @@ barcode TEXT PRIMARY KEY,                                                       
 product_info_id INT NOT NULL REFERENCES product_info(id),
 category_id INT NOT NULL REFERENCES category(id),
 subcategory_id INT NOT NULL REFERENCES subcategory(id),
-image_path TEXT NOT NULL UNIQUE,
+image_path TEXT DEFAULT 'images/products/placeholder.png',
 created_at TIMESTAMP DEFAULT now()
 );
 
@@ -52,7 +52,9 @@ username TEXT UNIQUE NOT NULL,                                                  
 email_hashed TEXT UNIQUE NOT NULL,                                                      -- Hash (GDPR)
 password_hash TEXT NOT NULL,                                                            -- Hash (GDPR)
 role_id INT REFERENCES role(id),                                                        -- Access
-created_at TIMESTAMP DEFAULT now()
+xp INT NOT NULL DEFAULT 0,                                                              -- Lvl
+created_at TIMESTAMP DEFAULT now(),
+CHECK (xp >= 0)                                                                         -- Safety check
 );
 
 CREATE TABLE review (
