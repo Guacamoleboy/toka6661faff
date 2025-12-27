@@ -95,5 +95,6 @@ CREATE TABLE product_badge (
 id SERIAL PRIMARY KEY,
 product_barcode TEXT NOT NULL REFERENCES product(barcode) ON DELETE CASCADE,            -- Product
 badge_id INT NOT NULL REFERENCES badge_definition(id) ON DELETE CASCADE,                -- Badge
+added TIMESTAMPTZ NOT NULL DEFAULT NOW(),                                               -- When was the badge issued
 UNIQUE(product_barcode, badge_id)
 );

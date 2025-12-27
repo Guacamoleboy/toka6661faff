@@ -4,6 +4,7 @@ package dk.project.server.routing;
 import dk.project.controller.PageController;
 import dk.project.controller.auth.AuthController;
 import dk.project.controller.product.ProductController;
+import dk.project.controller.review.ReviewController;
 import dk.project.controller.scan.ScannerController;
 import dk.project.controller.search.InputController;
 import io.javalin.Javalin;
@@ -21,6 +22,7 @@ public class Routing {
         InputController.registerRoutes(app);
         AuthController.registerRoutes(app);
         ProductController.registerRoutes(app);
+        ReviewController.registerRoutes(app);
 
     }
 

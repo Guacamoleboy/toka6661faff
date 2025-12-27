@@ -7,6 +7,7 @@ import dk.project.exception.DatabaseException;
 import dk.project.mapper.UserMapper;
 import dk.project.server.ThymeleafSetup;
 import io.javalin.Javalin;
+import io.javalin.http.Context;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.mindrot.jbcrypt.BCrypt;
 import java.util.HashMap;
@@ -20,9 +21,19 @@ public class AuthController {
 
     public static void registerRoutes(Javalin app) {
 
-        app.get("/login", ctx -> ctx.html(ThymeleafSetup.render("login.html", null)));
-        app.get("/register", ctx -> ctx.html(ThymeleafSetup.render("register.html", null)));
-        app.get("/myprofile", ctx -> ctx.html(ThymeleafSetup.render("profile.html", null)));
+        app.get("/login", ctx -> {
+            redirectIfLoggedIn(ctx, "alreadyLI");
+            if (ctx.res().isCommitted()) return;
+            ctx.html(ThymeleafSetup.render("login.html", null));
+        });
+
+        // _______________________________________________
+
+        app.get("/register", ctx -> {
+            redirectIfLoggedIn(ctx, "logOutFirst");
+            if (ctx.res().isCommitted()) return;
+            ctx.html(ThymeleafSetup.render("register.html", null));
+        });
 
         // _______________________________________________
 
@@ -148,6 +159,15 @@ public class AuthController {
             }
         });
 
+    }
+
+    // _________________________________________________________________________________
+
+    private static void redirectIfLoggedIn(Context ctx, String code) {
+        Integer userId = ctx.sessionAttribute("userId");
+        if (userId != null) {
+            ctx.redirect("/?error=" + code);
+        }
     }
 
 } // PageController end

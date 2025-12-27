@@ -117,6 +117,12 @@ document.addEventListener("DOMContentLoaded", function() {
             case "wrongInfo":
                 showNotification("Forkert brugernavn eller adgangskode...", "red");
                 break;
+            case "alreadyLI":
+                showNotification("Allerede logget ind", "consumr");
+                break;
+            case "logOutFirst":
+                showNotification("Log ud først", "consumr");
+                break;
             case "chooseProduct":
                 showNotification("Vælg et produkt", "red");
                 break;
