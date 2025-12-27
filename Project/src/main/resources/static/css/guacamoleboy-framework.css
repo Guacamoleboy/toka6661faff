@@ -1392,7 +1392,7 @@ li {
 .guac-notification {
     padding: 0.75rem 1.25rem;
     border-radius: 0.5rem;
-    color: var(--guac-white);
+    color: var(--guac-white) !important;
     font-weight: bold;
     min-width: 220px;
     max-width: 300px;

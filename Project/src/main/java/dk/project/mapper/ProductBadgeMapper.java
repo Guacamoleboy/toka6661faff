@@ -126,7 +126,8 @@ public class ProductBadgeMapper {
         return new ProductBadge(
                 rs.getInt("id"),
                 rs.getString("product_barcode"),
-                rs.getInt("badge_id")
+                rs.getInt("badge_id"),
+                rs.getTimestamp("added").toLocalDateTime()
         );
     }
 
